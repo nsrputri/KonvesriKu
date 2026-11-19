@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.log
+*.zip
+_backup*/
+uploads/
+results/
+.DS_Store
+Thumbs.db
