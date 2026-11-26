@@ -1,0 +1,4 @@
+Catatan Kuliah
+
+Komputasi awan memindahkan beban kerja ke server.
+Baris kedua.

@@ -1,50 +1,385 @@
 <!doctype html>
 <html lang="id">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>KonversiKu</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#a73e1e">
 <style>
-:root{--bg:#f5f2eb;--surface:#fffefa;--ink:#232b24;--muted:#596255;--accent:#a73e1e;--line:#d7dacf;--wash:#ebeede;--focus:#963818;--space:8px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Segoe UI',sans-serif}header,main,footer{max-width:1040px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.brand{font-size:22px;font-weight:750;letter-spacing:-1px}.brand span{color:var(--accent)}.tag{font-size:13px;color:var(--muted);border:1px solid var(--line);padding:4px 12px;border-radius:24px}main{padding-top:48px}.intro{display:flex;justify-content:space-between;gap:32px;align-items:end;margin-bottom:32px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}h1{font-family:Georgia,serif;font-size:clamp(32px,5vw,52px);line-height:1.15;font-weight:500;margin:8px 0 16px;letter-spacing:-1px}p{margin:8px 0;color:var(--muted)}.intro aside{max-width:240px;font-size:14px}.workspace{display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}.zone{min-height:380px;padding:32px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;border-right:1px solid var(--line);position:relative;background:var(--surface);transition:background .15s}.zone.dragging{background:var(--wash);outline:3px dashed var(--accent);outline-offset:-12px}.zone h2{font:500 27px Georgia,serif;margin:16px 0 4px}.arrow{font-size:44px;color:var(--accent)}button,.download{font:600 14px 'Segoe UI',sans-serif;border:1px solid var(--line);border-radius:8px;padding:12px 20px;min-height:44px;cursor:pointer;background:var(--surface);color:var(--ink);text-decoration:none;display:inline-block}button:hover,.download:hover{border-color:var(--accent)}button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:4px}button:disabled{cursor:not-allowed;opacity:.65}.primary,.download{background:var(--accent);color:white;border-color:var(--accent)}.side{padding:32px;display:flex;flex-direction:column;gap:16px;justify-content:center}.small{font-size:13px}.step{font-size:12px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.file{font-weight:650;overflow-wrap:anywhere}.status{padding:12px 16px;border-radius:8px;background:var(--wash);font-size:14px;overflow-wrap:anywhere}.wheel{width:280px;height:280px;position:relative;border:1px solid var(--line);border-radius:50%;background:var(--wash);margin:0 auto}.wheel::before{content:'';position:absolute;inset:32px;border:1px dashed #b6bcab;border-radius:50%;pointer-events:none}.hub{position:absolute;inset:96px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid var(--line)}.choice{position:absolute;width:88px;height:68px;padding:4px;font-size:15px;border-radius:16px}.choice small{display:block;font-size:11px;font-weight:400}.json{top:0;left:96px}.yaml{bottom:40px;left:0}.xml{bottom:40px;right:0}.choice.over{outline:4px solid var(--ink);outline-offset:3px}.actions{display:flex;flex-wrap:wrap;gap:8px}.notice{margin-top:24px;font-size:13px;max-width:740px}footer{font-size:12px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line)}[hidden]{display:none!important}@media(max-width:660px){header,main,footer{padding:20px}.intro{display:block}.intro aside{max-width:none;margin-top:16px}.workspace{grid-template-columns:1fr}.zone{border-right:0;border-bottom:1px solid var(--line);min-height:350px;padding:24px}.side{padding:24px}.tag{font-size:11px}main{padding-top:32px}}@media(prefers-reduced-motion:reduce){*{transition:none!important}}
-[hidden]{display:none!important}header,main{max-width:880px}main{padding-top:24px}.intro,.tag,footer{display:none}.zone{min-height:380px}.zone h2{font-size:25px}.arrow{display:none}.wheel{width:280px;height:280px}.choice{min-width:88px;min-height:68px}.side{min-width:0}.file{overflow-wrap:anywhere}.hub{inset:96px;font-size:16px}.json{left:96px;top:0}details{margin-top:16px;font-size:14px}summary{cursor:pointer;min-height:44px;display:flex;align-items:center}summary:focus-visible{outline:3px solid var(--focus)}@media(max-width:600px){header,main{padding:16px}.zone{min-height:350px}}
+:root{--bg:#f5f2eb;--surface:#fffefa;--ink:#232b24;--muted:#596255;--accent:#a73e1e;--line:#d7dacf;--wash:#ebeede;--focus:#963818}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'Segoe UI',sans-serif}
+header,main{max-width:880px;margin:auto;padding:24px}
+header{display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.brand{font-size:22px;font-weight:750;letter-spacing:-1px}.brand span{color:var(--accent)}
+main{padding-top:24px}
+p{margin:8px 0;color:var(--muted)}
+.workspace{display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.zone{min-height:380px;padding:32px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;border-right:1px solid var(--line);background:var(--surface);transition:background .15s}
+.zone.dragging{background:var(--wash);outline:3px dashed var(--accent);outline-offset:-12px}
+button,.download{font:600 14px 'Segoe UI',sans-serif;border:1px solid var(--line);border-radius:8px;padding:12px 20px;min-height:44px;cursor:pointer;background:var(--surface);color:var(--ink);text-decoration:none;display:inline-block}
+button:hover,.download:hover{border-color:var(--accent)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+button:disabled{cursor:not-allowed;opacity:.65}
+.primary,.download{background:var(--accent);color:#fff;border-color:var(--accent)}
+.side{padding:32px;display:flex;flex-direction:column;gap:12px;justify-content:center;min-width:0}
+.small{font-size:13px}
+.file{font-weight:650;overflow-wrap:anywhere}
+.status{padding:12px 16px;border-radius:8px;background:var(--wash);font-size:14px;overflow-wrap:anywhere}
+.wheel{width:280px;height:280px;flex:none;position:relative;border:1px solid var(--line);border-radius:50%;background:var(--wash);margin:0 auto}
+.wheel::before{content:'';position:absolute;inset:32px;border:1px dashed #b6bcab;border-radius:50%;pointer-events:none}
+.hub{position:absolute;inset:96px;padding:4px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;border:1px solid var(--line);z-index:1}
+#targets{position:absolute;inset:0;pointer-events:none}
+.choice{position:absolute;width:64px;height:44px;min-height:44px;padding:2px;font-size:13px;border-radius:12px;pointer-events:auto}
+.choice[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.choice.off{opacity:.55;text-decoration:line-through;cursor:help}
+.choice.more{font-size:12px;font-weight:600}
+.notes{margin:0;padding:0 0 0 18px;font-size:13px;color:var(--muted)}
+.notes li{margin:2px 0;overflow-wrap:anywhere}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.check input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.jobbox{border:1px solid var(--line);border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:6px}
+.jobbox p{margin:0}
+.coderow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+code{font:600 14px/1.4 Consolas,'Courier New',monospace;word-break:break-all;overflow-wrap:anywhere;min-width:0;flex:1 1 160px}
+.jobs{margin-top:16px;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:16px 24px}
+.jobs h2{font-size:15px;margin:12px 0 4px}
+.codeform{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.codeform label{font-weight:650;font-size:14px}
+.codeform input{flex:1 1 200px;min-width:0;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:14px Consolas,'Courier New',monospace;background:#fff;color:var(--ink)}
+.joblist{list-style:none;margin:0;padding:0}
+.joblist li{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)}
+.joblist .info{flex:1 1 200px;min-width:0;font-size:14px;overflow-wrap:anywhere}
+.joblist .tools{display:flex;flex-wrap:wrap;gap:6px}
+.joblist button{padding:8px 12px;font-size:13px}
+details{margin-top:16px;font-size:14px}
+summary{cursor:pointer;min-height:44px;display:flex;align-items:center}
+summary:focus-visible{outline:3px solid var(--focus)}
+#help ul{padding-left:18px;margin:8px 0}
+#help li{color:var(--muted);overflow-wrap:anywhere}
+#help h3{font-size:14px;margin:12px 0 0}
+[hidden]{display:none!important}
+@media(max-width:660px){.workspace{grid-template-columns:1fr}.zone{border-right:0;border-bottom:1px solid var(--line);min-height:350px;padding:24px}.side{padding:24px}}
+@media(max-width:600px){header,main{padding:16px}.jobs{padding:12px 16px}}
+@media(max-width:380px){header,main{padding-left:8px;padding-right:8px}.zone{padding:16px 8px}.side{padding:16px 12px}.jobs{padding:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head>
 <body>
 <header><div class="brand">Konversi<span>Ku</span>.</div></header>
 <main>
 <section class="workspace" aria-label="Konverter file">
 <div id="dropzone" class="zone">
-<div id="wheelPanel"><div class="wheel" aria-label="Area tarik file dan pilihan format hasil"><button id="pick" type="button" class="hub" aria-label="Pilih file untuk dikonversi">Pilih file</button><button id="format" type="button" class="choice json primary" hidden disabled>…</button></div><p class="small">Tarik file ke lingkaran · CSV · JSON · DOCX · TXT · Maks. 2 MB</p></div>
-<input id="fileInput" type="file" accept=".csv,.json,.docx,.txt" hidden>
+<div class="wheel" aria-label="Area tarik file dan pilihan format hasil"><button id="pick" type="button" class="hub" aria-label="Pilih file untuk dikonversi">Pilih file</button><div id="targets" role="group" aria-label="Format hasil"></div></div>
+<p id="hint" class="small">Tarik satu file ke lingkaran · batas tergantung format</p>
+<input id="fileInput" type="file" hidden>
 </div>
-<div class="side"><div id="filename" class="file">Belum ada file</div><div id="status" class="status" role="status" aria-live="polite">Pilih file untuk melihat format hasil.</div><div class="actions"><button id="convert" class="primary" disabled>Konversi</button><a id="download" class="download" hidden>Unduh</a><button id="replace" hidden>Ganti file</button></div></div>
+<div class="side">
+<div id="filename" class="file">Belum ada file</div>
+<div id="status" class="status" role="status" aria-live="polite">Pilih file untuk melihat format hasil.</div>
+<ul id="notes" class="notes" aria-label="Catatan sebelum konversi" hidden></ul>
+<label id="guardField" class="check" hidden><input id="guard" type="checkbox" checked><span>Amankan sel formula: awali sel =, +, -, @ dengan '</span></label>
+<div class="actions"><button id="convert" type="button" class="primary" disabled>Konversi</button><a id="download" class="download" hidden>Unduh</a><button id="replace" type="button" hidden>Ganti file</button></div>
+<div id="jobBox" class="jobbox" hidden>
+<div class="small">Kode tugas</div>
+<div class="coderow"><code id="jobCode"></code><button id="copyCode" type="button">Salin</button></div>
+<p class="small">Simpan kode ini. Halaman boleh ditutup: konversi tetap berjalan di server, dan hasil bisa diunduh nanti dari perangkat mana pun dengan kode ini.</p>
+</div>
+</div>
 </section>
-<details><summary>Bantuan & batasan</summary><p>CSV ↔ JSON, DOCX ↔ TXT. Maksimal 2 MB, CSV/JSON 10.000 baris, teks UTF-8. CSV memakai koma; nilai tetap teks. JSON harus array objek datar dengan kunci yang sama. JSON bersarang ditolak; null menjadi sel kosong dan tipe JSON tidak dipertahankan saat kembali dari CSV. Periksa formula sebelum membuka CSV di spreadsheet.</p><p>DOCX mengambil paragraf dan tabel utama tanpa gambar, gaya, header/footer, atau tata letak. TXT membuat paragraf sederhana. Maksimal isi DOCX 20 MB setelah dibuka. .doc dan PDF tidak didukung.</p><p>Tarik lalu klik format lingkaran, atau lepas pada format yang cocok. Shift opsional; hanya bekerja di halaman ini. File dikirim ke server dan diproses di memori; aplikasi tidak sengaja menyimpan file ke disk. Tidak ada antrean persisten atau hasil lintas sesi. Hindari dokumen rahasia.</p></details>
+<section class="jobs" aria-label="Tugas konversi">
+<form id="codeForm" class="codeform"><label for="codeInput">Punya kode?</label><input id="codeInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Tempel kode tugas"><button id="codeCheck" type="submit">Cek</button></form>
+<h2>Tugas di perangkat ini</h2>
+<ul id="jobList" class="joblist" aria-live="polite"></ul>
+<p id="jobEmpty" class="small">Belum ada tugas di perangkat ini.</p>
+</section>
+<details id="help"><summary>Bantuan &amp; batasan</summary>
+<div id="matrix"><p>Memuat…</p></div>
+<p id="limitsText">Batas ukuran tergantung format. Teks harus UTF-8.</p>
+<p>File diunggah ke server lalu dikonversi lewat antrean. Setelah unggahan selesai Anda mendapat kode tugas: simpan kode itu. Halaman boleh ditutup, dan hasil bisa diunduh di sesi atau perangkat lain dengan kode tersebut. File asli dihapus begitu konversi selesai atau gagal; hasil dihapus otomatis 24 jam setelah selesai. Kode yang hilang tidak bisa dipulihkan karena tidak ada akun. Unggahan yang terputus harus diulang. Hindari dokumen rahasia.</p>
+<p>Hasil HTML selalu diunduh, tidak ditampilkan. Gambar dan resource luar tidak pernah diambil dari URL atau file lokal. PDF hasil pindai ditolak karena belum ada OCR. Jenis file dicek dari isinya sejauh formatnya memungkinkan; TXT, Markdown, dan LaTeX tidak selalu bisa dibedakan.</p>
+</details>
 </main>
 <script>
 const $=id=>document.getElementById(id);
-let selected=null,busy=false,objectUrl=null,matrix=null,source=null,target=null;
-const formatsReady=fetch('/api/formats').then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>matrix=data).catch(()=>message('Format gagal dimuat. Muat ulang halaman.'));
+const SLOTS=8,RADIUS=100,CENTER=140,BTN_W=64,BTN_H=44;
+const STORE='konversiku.tugas',CODE_RE=/^[A-Za-z0-9_-]{43}$/,MAX_JOBS=20,POLL_MS=1500;
+const FINAL=['success','failed','expired','hilang'];
+const LABEL={memuat:'memuat status',queued:'menunggu',processing:'diproses',success:'selesai',failed:'gagal',expired:'kedaluwarsa',hilang:'kedaluwarsa atau tidak ditemukan'};
+let api=null,selected=null,source=null,target=null,busy=false,objectUrl=null,page=0;
+let jobs=loadJobs(),current=null,pollTimer=null,polling=false;
+const ready=fetch('/api/formats',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{api=data;setup();}).catch(()=>message('Format gagal dimuat. Muat ulang halaman.'));
 function message(text){$('status').textContent=text;}
+function short(fmt){return String(fmt).toUpperCase();}
+function long(fmt){return (api&&api.labels[fmt])||short(fmt);}
+function canonical(ext){ext=(ext||'').toLowerCase();return (api.aliases[ext])||ext;}
+// Batas dihitung biner (MiB); MB desimal ditampilkan juga karena lebih dikenal (sama dengan limits.size_label).
+// Spasi tak-putus di dalam "25 MiB" dan "(26,2 MB)" agar baris hanya terpotong di antara keduanya.
+function mib(bytes){return (bytes/1048576).toLocaleString('id-ID')+'\u00a0MiB ('+(bytes/1e6).toLocaleString('id-ID',{maximumFractionDigits:1})+'\u00a0MB)';}
+function sources(){return Object.keys(api.notes);}
+function limitOf(src){const per=api.limits.max_upload_bytes_per_source||{};return per[src]??api.limits.max_upload_bytes;}
+class ApiError extends Error{}
+function setup(){
+ const exts=[...sources(),...Object.keys(api.aliases)];
+ $('fileInput').accept=exts.map(e=>'.'+e).join(',');
+ $('hint').textContent='Tarik satu file ke lingkaran · maks. '+mib(api.limits.max_upload_bytes)+', tergantung format';
+ const box=$('matrix');box.replaceChildren();
+ for(const [group,members] of Object.entries(api.groups)){
+  const title=document.createElement('h3');title.textContent=group;box.append(title);
+  const list=document.createElement('ul');
+  for(const src of members){
+   const li=document.createElement('li');
+   const active=(api.pairs[src]||[]).map(short);
+   const off=Object.entries(api.disabled[src]||{});
+   let text=short(src)+(long(src)!==short(src)?' ('+long(src)+')':'')+' ke '+(active.join(', ')||'(tidak ada yang aktif)');
+   if(off.length)text+='. Nonaktif: '+off.map(([t,why])=>short(t)+' ('+why+')').join('; ');
+   li.textContent=text;list.append(li);
+  }
+  box.append(list);
+ }
+ const alias=Object.entries(api.aliases).map(([a,c])=>'.'+a+' = .'+c).join(', ');
+ const l=api.limits;
+ const bySize={};
+ for(const src of sources())(bySize[limitOf(src)]??=[]).push(short(src));
+ const sizes=Object.entries(bySize).sort((a,b)=>a[0]-b[0]).map(([bytes,names])=>names.join(', ')+' '+mib(Number(bytes)));
+ $('limitsText').textContent='Batas ukuran per format: '+sizes.join('; ')+'. Teks harus UTF-8. Alias ekstensi: '+alias+'. Tabel maksimal '+l.max_records.toLocaleString('id-ID')+' baris, '+l.max_columns+' kolom, dan '+l.max_cells.toLocaleString('id-ID')+' sel; isi teks DOCX maksimal '+mib(l.max_docx_xml_bytes)+' XML setelah dibuka; PDF maksimal '+l.max_pdf_pages.toLocaleString('id-ID')+' halaman dan '+l.max_text_chars.toLocaleString('id-ID')+' karakter teks. Dokumen yang sangat padat struktur (banyak judul atau daftar pendek) bisa ditolak lebih awal. Data ke dokumen/PDF belum didukung.';
+}
+// ------------------------------------------------------------ daftar tugas (localStorage)
+function loadJobs(){
+ try{
+  const raw=JSON.parse(localStorage.getItem(STORE)||'[]');
+  if(!Array.isArray(raw))throw Error();
+  return raw.filter(j=>j&&typeof j.kode==='string'&&CODE_RE.test(j.kode)&&typeof j.source==='string'&&typeof j.target==='string')
+   .slice(0,MAX_JOBS).map(j=>({kode:j.kode,nama:typeof j.nama==='string'?j.nama:'',source:j.source,target:j.target,dibuat:typeof j.dibuat==='string'?j.dibuat:'',status:'memuat'}));
+ }catch{try{localStorage.setItem(STORE,'[]');}catch{}return [];}
+}
+function saveJobs(){try{localStorage.setItem(STORE,JSON.stringify(jobs.map(({kode,nama,source,target,dibuat})=>({kode,nama,source,target,dibuat}))));}catch{}}
+function addJob(job){jobs=[job,...jobs.filter(j=>j.kode!==job.kode)].slice(0,MAX_JOBS);saveJobs();renderJobs();}
+function resultName(job){return job.nama?job.nama.replace(/\.[^.]+$/,'')+'_hasil.'+job.target:'hasil.'+job.target;}
+function tool(text,cls,label,action){const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=text;b.setAttribute('aria-label',label);b.onclick=action;return b;}
+function renderJobs(){
+ const list=$('jobList');list.replaceChildren();
+ for(const job of jobs){
+  const li=document.createElement('li');
+  const info=document.createElement('span');info.className='info';
+  let text=(job.nama||'(dari kode)')+' > '+short(job.target)+' ('+(LABEL[job.status]||job.status)+')';
+  if(job.status==='queued'&&job.posisi)text+=', antrean ke-'+job.posisi;
+  info.textContent=text;
+  const tools=document.createElement('span');tools.className='tools';
+  if(job.status==='success')tools.append(tool('Unduh '+short(job.target),'get','Unduh hasil '+(job.nama||short(job.target)),()=>downloadJob(job)));
+  tools.append(tool('Salin kode','copy','Salin kode tugas '+(job.nama||''),()=>copyCode(job.kode)));
+  tools.append(tool('Hapus','remove','Hapus dari daftar di perangkat ini',()=>{jobs=jobs.filter(j=>j!==job);if(current===job)current=null;saveJobs();renderJobs();updateConvert();}));
+  li.append(info,tools);list.append(li);
+ }
+ $('jobEmpty').hidden=jobs.length>0;
+}
+async function copyCode(kode){
+ try{await navigator.clipboard.writeText(kode);message('Kode tugas disalin.');}
+ catch{message('Salin manual kode ini: '+kode);}
+}
+// ------------------------------------------------------------ API tugas
+async function fetchStatus(kode){
+ const r=await fetch('/api/jobs/status',{headers:{'X-Kode-Tugas':kode},cache:'no-store'});
+ if(r.status===404)return {status:'hilang',pesan:'Kode tidak ditemukan atau hasil sudah dihapus.'};
+ let data={};try{data=await r.json();}catch{}
+ if(!r.ok)throw new ApiError(typeof data.detail==='string'?data.detail:'Status gagal dimuat.');
+ return data;
+}
+async function fetchResult(kode){
+ const r=await fetch('/api/jobs/hasil',{headers:{'X-Kode-Tugas':kode},cache:'no-store'});
+ if(!r.ok){let text='Hasil gagal diunduh.';try{const data=await r.json();if(typeof data.detail==='string')text=data.detail;}catch{}throw new ApiError(text);}
+ return {blob:new Blob([await r.arrayBuffer()],{type:'application/octet-stream'}),notes:parseNotes(r.headers.get('X-KonversiKu-Notes'))};
+}
+async function downloadJob(job){
+ try{
+  const {blob}=await fetchResult(job.kode);
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download=resultName(job);a.hidden=true;
+  document.body.append(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+ }catch(error){message(error instanceof ApiError?error.message:'Koneksi gagal. Coba lagi.');}
+}
+function applyStatus(job,data){
+ job.status=data.status;job.pesan=typeof data.pesan==='string'?data.pesan:'';
+ job.posisi=data.posisi_antrean||null;job.catatan=Array.isArray(data.catatan)?data.catatan.filter(x=>typeof x==='string'):[];
+}
+async function refresh(){
+ if(polling)return;
+ polling=true;
+ try{
+  for(const job of [...jobs]){
+   if(FINAL.includes(job.status))continue;
+   try{applyStatus(job,await fetchStatus(job.kode));}catch{}
+  }
+  renderJobs();
+  await updateCurrent();
+ }finally{polling=false;schedule();}
+}
+function schedule(){
+ clearTimeout(pollTimer);
+ if(jobs.some(j=>!FINAL.includes(j.status)))pollTimer=setTimeout(refresh,POLL_MS);
+}
+async function updateCurrent(){
+ const job=current;
+ if(!job)return;
+ if(job.status==='queued')message('Menunggu antrean'+(job.posisi?' (posisi '+job.posisi+')':'')+'. Halaman boleh ditutup.');
+ else if(job.status==='processing')message('Sedang dikonversi di server…');
+ else if(job.status==='success'&&!job.siap){
+  job.siap=true;
+  try{
+   const {blob,notes}=await fetchResult(job.kode);
+   if(current!==job)return;
+   clearDownload();
+   objectUrl=URL.createObjectURL(blob);
+   const link=$('download');link.href=objectUrl;link.download=resultName(job);link.textContent='Unduh '+short(job.target);link.hidden=false;$('convert').hidden=true;
+   if(notes.length)renderNotes(notes);
+   message('Selesai. Hasil siap diunduh.');
+  }catch(error){job.siap=false;message(error instanceof ApiError?error.message:'Koneksi gagal. Coba lagi.');}
+ }
+ else if(job.status==='failed')message(job.pesan||'Konversi gagal.');
+ else if(job.status==='expired'||job.status==='hilang')message(job.pesan||'Hasil sudah kedaluwarsa dan dihapus.');
+ updateConvert();
+}
+function upload(params,file){
+ return new Promise((resolve,reject)=>{
+  const x=new XMLHttpRequest();
+  x.open('POST','/api/jobs?'+params);
+  x.setRequestHeader('Content-Type','application/octet-stream');
+  x.upload.onprogress=e=>{if(e.lengthComputable)message('Mengunggah… '+Math.floor(e.loaded*100/e.total)+'%');};
+  x.onload=()=>{
+   let data={};try{data=JSON.parse(x.responseText||'{}');}catch{}
+   if(x.status===202&&typeof data.kode==='string'&&CODE_RE.test(data.kode))resolve(data.kode);
+   else reject(new ApiError(typeof data.detail==='string'?data.detail:'Unggahan gagal. Coba lagi.'));
+  };
+  x.onerror=x.onabort=x.ontimeout=()=>reject(new Error('jaringan'));
+  x.send(file);
+ });
+}
+function showCode(kode){$('jobCode').textContent=kode;$('jobBox').hidden=false;}
+// ------------------------------------------------------------ pemilih format
+function targetsOf(src){
+ const off=api.disabled[src]||{};
+ return Object.keys(api.notes[src]||{}).filter(t=>(api.pairs[src]||[]).includes(t)||off[t]).map(t=>({fmt:t,reason:off[t]||null}));
+}
+function hasOption(name){return !!(source&&target&&((api.options[source]||{})[target]||[]).includes(name));}
 function clearDownload(){if(objectUrl)URL.revokeObjectURL(objectUrl);objectUrl=null;$('download').hidden=true;$('convert').hidden=false;}
+function detach(){current=null;clearDownload();}
+function pending(){return !!(current&&!FINAL.includes(current.status));}
+function updateConvert(){
+ $('convert').disabled=busy||!selected||!target||pending();
+ $('convert').textContent=target?'Konversi ke '+short(target):'Konversi';
+}
+function renderNotes(list){
+ const box=$('notes');box.replaceChildren();
+ for(const text of list){const li=document.createElement('li');li.textContent=text;box.append(li);}
+ box.hidden=!list.length;
+}
+function makeButton(text,label){const b=document.createElement('button');b.type='button';b.className='choice';b.textContent=text;b.setAttribute('aria-label',label);return b;}
+function renderTargets(){
+ const box=$('targets');box.replaceChildren();
+ if(!source)return;
+ const items=targetsOf(source);
+ const pages=[];
+ if(items.length<=SLOTS)pages.push(items);else for(let i=0;i<items.length;i+=SLOTS-1)pages.push(items.slice(i,i+SLOTS-1));
+ page=Math.min(page,pages.length-1);
+ const buttons=pages[page].map(({fmt,reason})=>{
+  const b=makeButton(short(fmt),reason?long(fmt)+' (nonaktif)':'Hasil '+long(fmt));
+  b.dataset.format=fmt;b.setAttribute('aria-pressed',String(fmt===target));
+  if(reason){b.classList.add('off');b.setAttribute('aria-disabled','true');b.title=reason;}
+  b.onclick=()=>pickTarget(fmt,reason);
+  return b;
+ });
+ if(pages.length>1){
+  const more=makeButton('Lainnya','Format lain, halaman '+(page+1)+' dari '+pages.length);
+  more.classList.add('more');more.onclick=()=>{page=(page+1)%pages.length;renderTargets();box.querySelector('button')?.focus();};
+  buttons.push(more);
+ }
+ buttons.forEach((b,i)=>{
+  const angle=-Math.PI/2+2*Math.PI*i/buttons.length;
+  b.style.left=Math.round(CENTER+RADIUS*Math.cos(angle)-BTN_W/2)+'px';
+  b.style.top=Math.round(CENTER+RADIUS*Math.sin(angle)-BTN_H/2)+'px';
+  box.append(b);
+ });
+}
+function pickTarget(fmt,reason){
+ if(busy)return;
+ if(reason){message(reason);return;}
+ target=fmt;detach();
+ for(const b of $('targets').querySelectorAll('[data-format]'))b.setAttribute('aria-pressed',String(b.dataset.format===fmt));
+ $('guardField').hidden=!hasOption('formula_guard');
+ renderNotes((api.notes[source]||{})[fmt]||[]);updateConvert();
+ message('Siap: '+short(source)+' ke '+short(fmt)+'. Periksa catatan, lalu klik Konversi.');
+}
+function resetSelection(){
+ detach();selected=null;source=null;target=null;page=0;
+ $('filename').textContent='Belum ada file';$('pick').textContent='Pilih file';$('pick').setAttribute('aria-label','Pilih file untuk dikonversi');
+ $('guardField').hidden=true;$('jobBox').hidden=true;renderNotes([]);renderTargets();updateConvert();
+}
 function choose(file){
- clearDownload();selected=null;source=null;target=null;$('convert').disabled=true;$('format').disabled=true;$('format').hidden=true;$('filename').textContent='Belum ada file';
- const ext=file?.name.split('.').pop().toLowerCase();
- if(!matrix){message('Format belum siap. Muat ulang halaman.');return false;}
- if(!matrix[ext]){message('Pilih CSV, JSON, DOCX, atau TXT.');return false;}
- if(!file.size||file.size>2*1024*1024){message('File harus berisi data, maksimal 2 MB.');return false;}
- selected=file;source=ext;target=matrix[ext][0];$('filename').textContent=file.name+' · '+Math.ceil(file.size/1024)+' KB';$('pick').textContent=source.toUpperCase();$('pick').setAttribute('aria-label','Ganti file '+source.toUpperCase());$('format').textContent=target.toUpperCase();$('format').setAttribute('aria-label','Konversi ke '+target.toUpperCase());$('format').hidden=false;$('format').disabled=false;$('convert').disabled=false;$('replace').hidden=false;message('Klik '+target.toUpperCase()+' untuk konversi.');return true;
+ resetSelection();
+ if(!api){message('Format belum siap. Muat ulang halaman.');return false;}
+ const name=file?.name||'';
+ const dot=name.lastIndexOf('.');
+ const ext=canonical(dot>=0?name.slice(dot+1):'');
+ if(!api.notes[ext]){message('Format '+(dot>=0?name.slice(dot):'tanpa ekstensi')+' tidak didukung. Pilih '+sources().map(short).join(', ')+'.');return false;}
+ if(!file.size){message('File kosong. Pilih file berisi data.');return false;}
+ const limit=limitOf(ext);
+ if(file.size>limit){message('File '+short(ext)+' melebihi batas '+mib(limit)+'.');return false;}
+ selected=file;source=ext;
+ $('filename').textContent=name+' · '+Math.ceil(file.size/1024).toLocaleString('id-ID')+' KB dari maks. '+mib(limit);
+ $('pick').textContent=short(source);$('pick').setAttribute('aria-label','Ganti file '+short(source));
+ $('replace').hidden=false;
+ renderTargets();
+ const active=api.pairs[source]||[];
+ if(active.length===1&&targetsOf(source).length===1)pickTarget(active[0],null);
+ else message(active.length?'Pilih format hasil di lingkaran.':'Tidak ada format hasil yang aktif untuk '+short(source)+' di server ini. Lihat Bantuan.');
+ return true;
 }
+function parseNotes(header){try{const list=JSON.parse(header||'[]');return Array.isArray(list)?list.filter(x=>typeof x==='string'):[];}catch{return [];}}
+function setBusy(on){busy=on;for(const id of ['replace','pick','guard'])$(id).disabled=on;for(const b of $('targets').querySelectorAll('button'))b.disabled=on;updateConvert();}
 async function convert(){
- if(busy||!selected)return;busy=true;clearDownload();for(const id of ['convert','format','replace'])$(id).disabled=true;message('Mengonversi…');
- try{const response=await fetch('/api/convert?'+new URLSearchParams({source,target}),{method:'POST',headers:{'Content-Type':'application/octet-stream'},body:selected});if(!response.ok){let text='Konversi gagal. Coba lagi.';try{text=(await response.json()).detail||text;}catch{}throw Error(text);}
- objectUrl=URL.createObjectURL(await response.blob());$('download').href=objectUrl;$('download').download=selected.name.replace(/\.[^.]+$/,'')+'_hasil.'+target;$('download').textContent='Unduh '+target.toUpperCase();$('download').hidden=false;$('convert').hidden=true;message('Selesai. Hasil siap diunduh.');
- }catch(error){message(error instanceof TypeError?'Koneksi gagal. Coba lagi.':error.message);}finally{busy=false;for(const id of ['convert','format','replace'])$(id).disabled=false;}
+ if(busy||!selected||!target||pending())return;
+ detach();setBusy(true);message('Mengunggah…');
+ const file=selected,src=source,tgt=target;
+ try{
+  const params=new URLSearchParams({source:src,target:tgt});
+  if(hasOption('formula_guard'))params.set('formula_guard',$('guard').checked?'1':'0');
+  const kode=await upload(params,file);
+  const job={kode,nama:file.name,source:src,target:tgt,dibuat:new Date().toISOString(),status:'queued'};
+  addJob(job);current=job;showCode(kode);
+  message('Unggahan selesai. Tugas masuk antrean; halaman boleh ditutup.');
+ }catch(error){message(error instanceof ApiError?error.message:'Koneksi gagal. Coba lagi.');}
+ finally{setBusy(false);schedule();}
 }
-$('pick').onclick=()=>{if(!busy)$('fileInput').click();};$('replace').onclick=$('pick').onclick;
-$('fileInput').onchange=async e=>{const files=[...e.target.files];e.target.value='';await formatsReady;if(!busy&&files.length===1)choose(files[0]);};
-$('convert').onclick=convert;$('format').onclick=convert;
-window.addEventListener('dragover',e=>e.preventDefault());window.addEventListener('drop',e=>{e.preventDefault();$('dropzone').classList.remove('dragging');});
+async function checkCode(event){
+ event.preventDefault();
+ const kode=$('codeInput').value.trim();
+ if(!CODE_RE.test(kode)){message('Kode tugas tidak valid. Periksa lagi kode yang ditempel.');return;}
+ let job=jobs.find(j=>j.kode===kode);
+ try{
+  const data=await fetchStatus(kode);
+  if(!job){job={kode,nama:'',source:String(data.source||''),target:String(data.target||'hasil'),dibuat:String(data.dibuat||''),status:'memuat'};addJob(job);}
+  applyStatus(job,data);renderJobs();
+  $('codeInput').value='';
+  message('Status tugas: '+(LABEL[job.status]||job.status)+(job.pesan?'. '+job.pesan:'.'));
+  schedule();
+ }catch(error){message(error instanceof ApiError?error.message:'Koneksi gagal. Coba lagi.');}
+}
+$('pick').onclick=()=>{if(!busy)$('fileInput').click();};
+$('replace').onclick=$('pick').onclick;
+$('fileInput').onchange=async e=>{const files=[...e.target.files];e.target.value='';await ready;if(busy)return;if(files.length!==1){message('Pilih satu file saja.');return;}choose(files[0]);};
+$('convert').onclick=convert;
+$('copyCode').onclick=()=>copyCode($('jobCode').textContent);
+$('codeForm').onsubmit=checkCode;
+$('guard').onchange=()=>{detach();updateConvert();};
+window.addEventListener('dragover',e=>e.preventDefault());
+window.addEventListener('drop',e=>{e.preventDefault();$('dropzone').classList.remove('dragging');});
 $('dropzone').addEventListener('dragenter',e=>{e.preventDefault();if(!busy)$('dropzone').classList.add('dragging');});
 $('dropzone').addEventListener('dragover',e=>{e.preventDefault();if(e.dataTransfer)e.dataTransfer.dropEffect=busy?'none':'copy';});
 $('dropzone').addEventListener('dragleave',e=>{if(!$('dropzone').contains(e.relatedTarget))$('dropzone').classList.remove('dragging');});
-$('dropzone').addEventListener('drop',async e=>{e.preventDefault();e.stopPropagation();$('dropzone').classList.remove('dragging');$('format').classList.remove('over');if(busy)return;const files=[...e.dataTransfer.files],onFormat=!!e.target.closest('#format'),previousTarget=target;await formatsReady;if(busy)return;if(files.length!==1){message('Tarik satu file saja.');return;}if(choose(files[0])&&onFormat&&previousTarget===target)convert();});
-$('format').addEventListener('dragover',()=>{if(!busy)$('format').classList.add('over');});$('format').addEventListener('dragleave',()=>$('format').classList.remove('over'));
+$('dropzone').addEventListener('drop',async e=>{e.preventDefault();e.stopPropagation();$('dropzone').classList.remove('dragging');if(busy)return;const files=[...(e.dataTransfer?.files||[])];await ready;if(busy)return;if(files.length!==1){message('Tarik satu file saja.');return;}choose(files[0]);});
 window.addEventListener('beforeunload',()=>{if(objectUrl)URL.revokeObjectURL(objectUrl);});
+renderJobs();refresh();
 </script></body></html>

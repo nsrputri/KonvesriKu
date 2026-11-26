@@ -1,0 +1,2 @@
+# KonversiKu: /etc/default/prometheus. Hanya localhost; data disimpan 15 hari.
+ARGS="--web.listen-address=127.0.0.1:9090 --storage.tsdb.retention.time=15d"

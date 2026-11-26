@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<katalog>
+  <buku id="1"><judul>Komputasi Awan</judul><tahun>2026</tahun></buku>
+  <buku id="2"><judul>Basis Data</judul><tahun>2025</tahun></buku>
+</katalog>

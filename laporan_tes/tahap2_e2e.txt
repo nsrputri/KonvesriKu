@@ -1,0 +1,33 @@
+Perintah: KONVERSIKU_E2E_URL=http://127.0.0.1:8001 python -m pytest tests/e2e -v -p no:cacheprovider (dari hasil/ di laptop)
+Waktu: 2026-11-25 19:57:54 +0700
+Browser: Chrome di laptop Windows 11 (Playwright). Server: stack dev tahap 2 di VPS (uvicorn port 8001 + pekerja Celery + PostgreSQL + Redis) lewat tunnel SSH -L 8001:127.0.0.1:8001
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0 -- D:\Kuliah\Sem5\proyek CLOUDxAMJ\KonversiKu_PRD\.venv\Scripts\python.exe
+KonversiKu alat sistem: pandoc=3.13 (rts=+RTS -M512M -RTS, reader=docx,gfm,html,latex,rst,rtf, writer=docx,gfm,html5,latex,plain,rst,rtf), libreoffice=26.8.3.1
+rootdir: D:\Kuliah\Sem5\proyek CLOUDxAMJ\KonversiKu_PRD\hasil
+configfile: pytest.ini
+plugins: anyio-4.16.0
+collecting ... collected 19 items
+
+tests/e2e/test_ui.py::test_initial_wheel_visible PASSED                  [  5%]
+tests/e2e/test_ui.py::test_markdown_two_targets_from_same_input PASSED   [ 10%]
+tests/e2e/test_ui.py::test_csv_picker_json_then_tsv PASSED               [ 15%]
+tests/e2e/test_ui.py::test_synthetic_drop PASSED                         [ 21%]
+tests/e2e/test_ui.py::test_drop_rejects_multiple_files PASSED            [ 26%]
+tests/e2e/test_ui.py::test_api_error_then_retry PASSED                   [ 31%]
+tests/e2e/test_ui.py::test_client_side_validation PASSED                 [ 36%]
+tests/e2e/test_ui.py::test_formula_guard_checkbox PASSED                 [ 42%]
+tests/e2e/test_ui.py::test_html_result_downloaded_and_names_are_text PASSED [ 47%]
+tests/e2e/test_ui.py::test_disabled_pairs_explain_reason PASSED          [ 52%]
+tests/e2e/test_ui.py::test_keyboard_selects_target PASSED                [ 57%]
+tests/e2e/test_ui.py::test_pagination_when_more_than_eight_targets PASSED [ 63%]
+tests/e2e/test_ui.py::test_responsive_without_overflow[320] PASSED       [ 68%]
+tests/e2e/test_ui.py::test_responsive_without_overflow[375] PASSED       [ 73%]
+tests/e2e/test_ui.py::test_responsive_without_overflow[768] PASSED       [ 78%]
+tests/e2e/test_ui.py::test_close_browser_then_download_with_code_in_new_context PASSED [ 84%]
+tests/e2e/test_ui.py::test_corrupted_local_storage_does_not_break_page PASSED [ 89%]
+tests/e2e/test_ui.py::test_double_click_creates_one_job PASSED           [ 94%]
+tests/e2e/test_ui.py::test_expired_job_shows_clear_message PASSED        [100%]
+
+======================== 19 passed in 79.21s (0:01:19) ========================

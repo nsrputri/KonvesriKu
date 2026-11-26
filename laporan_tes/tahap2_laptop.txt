@@ -1,0 +1,372 @@
+Perintah: python -m pytest -m "not e2e" -v -p no:cacheprovider (dari hasil/)
+Waktu: 2026-11-25 19:56:19 +0700
+Python: Python 3.11.9
+OS: Windows 11 (laptop pengembangan); PostgreSQL/Redis tidak ada di laptop, tes bertanda 'layanan' dilewati di sini dan dijalankan di VPS
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.2.0, pluggy-1.7.0 -- D:\Kuliah\Sem5\proyek CLOUDxAMJ\KonversiKu_PRD\.venv\Scripts\python.exe
+KonversiKu alat sistem: pandoc=3.13 (rts=+RTS -M512M -RTS, reader=docx,gfm,html,latex,rst,rtf, writer=docx,gfm,html5,latex,plain,rst,rtf), libreoffice=26.8.3.1
+rootdir: D:\Kuliah\Sem5\proyek CLOUDxAMJ\KonversiKu_PRD\hasil
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 314 items / 19 deselected / 295 selected
+
+tests/tahap2/test_cleanup.py::test_result_removed_24h_after_finish_not_upload SKIPPED [  0%]
+tests/tahap2/test_cleanup.py::test_failed_job_cleaned_24h_after_failure SKIPPED [  0%]
+tests/tahap2/test_cleanup.py::test_expired_rows_deleted_after_7_days SKIPPED [  1%]
+tests/tahap2/test_cleanup.py::test_orphan_job_dir_removed_after_one_hour SKIPPED [  1%]
+tests/tahap2/test_cleanup.py::test_stale_part_removed_after_one_hour SKIPPED [  1%]
+tests/tahap2/test_cleanup.py::test_active_jobs_untouched SKIPPED (BE...) [  2%]
+tests/tahap2/test_cleanup.py::test_expired_row_with_leftover_files_is_cleaned SKIPPED [  2%]
+tests/tahap2/test_jobs_api.py::test_submit_returns_202_and_queues SKIPPED [  2%]
+tests/tahap2/test_jobs_api.py::test_status_and_download_roundtrip SKIPPED [  3%]
+tests/tahap2/test_jobs_api.py::test_status_while_queued_shows_position SKIPPED [  3%]
+tests/tahap2/test_jobs_api.py::test_download_before_done_is_409 SKIPPED  [  3%]
+tests/tahap2/test_jobs_api.py::test_failed_job_status_and_download SKIPPED [  4%]
+tests/tahap2/test_jobs_api.py::test_unknown_code_is_404 SKIPPED (BEL...) [  4%]
+tests/tahap2/test_jobs_api.py::test_expired_is_410 SKIPPED (BELUM DI...) [  4%]
+tests/tahap2/test_jobs_api.py::test_success_past_expiry_before_cleanup_is_410 SKIPPED [  5%]
+tests/tahap2/test_jobs_api.py::test_code_header_validation SKIPPED (...) [  5%]
+tests/tahap2/test_jobs_api.py::test_empty_upload_is_400 SKIPPED (BEL...) [  5%]
+tests/tahap2/test_jobs_api.py::test_upload_over_limit_413_leaves_nothing SKIPPED [  6%]
+tests/tahap2/test_jobs_api.py::test_aborted_upload_leaves_no_files_or_rows SKIPPED [  6%]
+tests/tahap2/test_jobs_api.py::test_queue_full_is_503 SKIPPED (BELUM...) [  6%]
+tests/tahap2/test_jobs_api.py::test_quota_full_is_503 SKIPPED (BELUM...) [  7%]
+tests/tahap2/test_jobs_api.py::test_send_failure_still_202_and_stays_queued SKIPPED [  7%]
+tests/tahap2/test_jobs_api.py::test_db_failure_before_commit_removes_file SKIPPED [  7%]
+tests/tahap2/test_jobs_api.py::test_database_down_returns_503 SKIPPED    [  8%]
+tests/tahap2/test_jobs_api.py::test_unsupported_pair_400_and_missing_tool_503 SKIPPED [  8%]
+tests/tahap2/test_jobs_db.py::test_new_code_shape PASSED                 [  8%]
+tests/tahap2/test_jobs_db.py::test_insert_and_find_does_not_store_code SKIPPED [  9%]
+tests/tahap2/test_jobs_db.py::test_claim_moves_to_processing SKIPPED     [  9%]
+tests/tahap2/test_jobs_db.py::test_second_claim_returns_none SKIPPED     [  9%]
+tests/tahap2/test_jobs_db.py::test_concurrent_claims_only_one_wins SKIPPED [ 10%]
+tests/tahap2/test_jobs_db.py::test_claim_refused_when_attempts_exhausted SKIPPED [ 10%]
+tests/tahap2/test_jobs_db.py::test_mark_success_expires_24h_after_finish SKIPPED [ 10%]
+tests/tahap2/test_jobs_db.py::test_mark_success_only_from_processing_and_counted_once SKIPPED [ 11%]
+tests/tahap2/test_jobs_db.py::test_mark_failed_expires_24h SKIPPED (...) [ 11%]
+tests/tahap2/test_jobs_db.py::test_queue_position SKIPPED (BELUM DIU...) [ 11%]
+tests/tahap2/test_ops_api.py::test_healthz_ok SKIPPED (BELUM DIUJI: ...) [ 12%]
+tests/tahap2/test_ops_api.py::test_healthz_names_failed_component SKIPPED [ 12%]
+tests/tahap2/test_ops_api.py::test_healthz_reports_database_down SKIPPED [ 12%]
+tests/tahap2/test_ops_api.py::test_metrics_counts_match_database SKIPPED [ 13%]
+tests/tahap2/test_ops_api.py::test_metrics_totals_survive_expiry_and_row_deletion SKIPPED [ 13%]
+tests/tahap2/test_ops_api.py::test_metrics_contain_no_ids_or_codes SKIPPED [ 13%]
+tests/tahap2/test_real_processes.py::test_killed_worker_job_finishes_after_restart SKIPPED [ 14%]
+tests/tahap2/test_real_processes.py::test_api_restart_keeps_status SKIPPED [ 14%]
+tests/tahap2/test_real_processes.py::test_two_workers_never_process_same_job SKIPPED [ 14%]
+tests/tahap2/test_real_processes.py::test_code_not_in_any_log SKIPPED    [ 15%]
+tests/tahap2/test_recovery.py::test_expired_lease_requeued_and_resent SKIPPED [ 15%]
+tests/tahap2/test_recovery.py::test_lease_not_expired_is_left_alone SKIPPED [ 15%]
+tests/tahap2/test_recovery.py::test_expired_lease_without_attempts_left_fails SKIPPED [ 16%]
+tests/tahap2/test_recovery.py::test_restarted_worker_reclaims_only_own_jobs SKIPPED [ 16%]
+tests/tahap2/test_recovery.py::test_stale_queued_resent_after_two_minutes SKIPPED [ 16%]
+tests/tahap2/test_recovery.py::test_send_failure_keeps_job_queued SKIPPED [ 17%]
+tests/tahap2/test_recovery.py::test_recovery_never_reverts_finished_job SKIPPED [ 17%]
+tests/tahap2/test_storage.py::test_write_stream_stops_at_limit_and_removes_part PASSED [ 17%]
+tests/tahap2/test_storage.py::test_write_stream_rejects_empty PASSED     [ 18%]
+tests/tahap2/test_storage.py::test_write_stream_removes_part_when_source_raises PASSED [ 18%]
+tests/tahap2/test_storage.py::test_write_stream_returns_part_and_size PASSED [ 18%]
+tests/tahap2/test_storage.py::test_adopt_input_moves_file PASSED         [ 19%]
+tests/tahap2/test_storage.py::test_write_result_atomic PASSED            [ 19%]
+tests/tahap2/test_storage.py::test_delete_input_and_job PASSED           [ 20%]
+tests/tahap2/test_storage.py::test_job_id_must_be_uuid[../x] PASSED      [ 20%]
+tests/tahap2/test_storage.py::test_job_id_must_be_uuid[..] PASSED        [ 20%]
+tests/tahap2/test_storage.py::test_job_id_must_be_uuid[fc13bd14-1402-4c47-b8da-69fc7ae23f10] PASSED [ 21%]
+tests/tahap2/test_storage.py::test_job_id_must_be_uuid[None] PASSED      [ 21%]
+tests/tahap2/test_storage.py::test_private_permissions SKIPPED (izin...) [ 21%]
+tests/tahap2/test_storage.py::test_total_bytes PASSED                    [ 22%]
+tests/tahap2/test_storage.py::test_total_bytes_ignores_file_vanishing_midway PASSED [ 22%]
+tests/tahap2/test_storage.py::test_stale_incoming_and_job_age_ignore_vanished_entries PASSED [ 22%]
+tests/tahap2/test_storage.py::test_stale_incoming_and_job_dir_age PASSED [ 23%]
+tests/tahap2/test_worker.py::test_success_writes_result_and_deletes_input SKIPPED [ 23%]
+tests/tahap2/test_worker.py::test_invalid_file_fails_without_retry SKIPPED [ 23%]
+tests/tahap2/test_worker.py::test_tool_timeout_fails_without_retry SKIPPED [ 24%]
+tests/tahap2/test_worker.py::test_tool_detection_retried_once_before_failing SKIPPED [ 24%]
+tests/tahap2/test_worker.py::test_missing_tool_still_fails_after_one_redetection SKIPPED [ 24%]
+tests/tahap2/test_worker.py::test_unexpected_error_retries_then_fails SKIPPED [ 25%]
+tests/tahap2/test_worker.py::test_lost_ownership_does_not_mark_success_or_delete_input SKIPPED [ 25%]
+tests/tahap2/test_worker.py::test_already_claimed_is_skipped SKIPPED     [ 25%]
+tests/tahap2/test_worker.py::test_celery_settings PASSED                 [ 26%]
+tests/test_contoh.py::test_every_source_format_has_a_sample PASSED       [ 26%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[artikel.tex] PASSED [ 26%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[catatan.md] PASSED [ 27%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[data.csv] PASSED [ 27%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[data.json] PASSED [ 27%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[data.tsv] PASSED [ 28%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[dokumen.rtf] PASSED [ 28%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[halaman.html] PASSED [ 28%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[katalog.xml] PASSED [ 29%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[konfigurasi.yaml] PASSED [ 29%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[laporan.docx] PASSED [ 29%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[panduan.rst] PASSED [ 30%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[teks.pdf] PASSED [ 30%]
+tests/test_contoh.py::test_sample_converts_to_all_active_targets[teks.txt] PASSED [ 30%]
+tests/test_data.py::test_data_pair_count PASSED                          [ 31%]
+tests/test_data.py::test_data_pair_preserves_records[csv-tsv] PASSED     [ 31%]
+tests/test_data.py::test_data_pair_preserves_records[csv-json] PASSED    [ 31%]
+tests/test_data.py::test_data_pair_preserves_records[csv-yaml] PASSED    [ 32%]
+tests/test_data.py::test_data_pair_preserves_records[csv-xml] PASSED     [ 32%]
+tests/test_data.py::test_data_pair_preserves_records[tsv-csv] PASSED     [ 32%]
+tests/test_data.py::test_data_pair_preserves_records[tsv-json] PASSED    [ 33%]
+tests/test_data.py::test_data_pair_preserves_records[tsv-yaml] PASSED    [ 33%]
+tests/test_data.py::test_data_pair_preserves_records[tsv-xml] PASSED     [ 33%]
+tests/test_data.py::test_data_pair_preserves_records[json-csv] PASSED    [ 34%]
+tests/test_data.py::test_data_pair_preserves_records[json-tsv] PASSED    [ 34%]
+tests/test_data.py::test_data_pair_preserves_records[json-yaml] PASSED   [ 34%]
+tests/test_data.py::test_data_pair_preserves_records[json-xml] PASSED    [ 35%]
+tests/test_data.py::test_data_pair_preserves_records[yaml-csv] PASSED    [ 35%]
+tests/test_data.py::test_data_pair_preserves_records[yaml-tsv] PASSED    [ 35%]
+tests/test_data.py::test_data_pair_preserves_records[yaml-json] PASSED   [ 36%]
+tests/test_data.py::test_data_pair_preserves_records[yaml-xml] PASSED    [ 36%]
+tests/test_data.py::test_data_pair_preserves_records[xml-csv] PASSED     [ 36%]
+tests/test_data.py::test_data_pair_preserves_records[xml-tsv] PASSED     [ 37%]
+tests/test_data.py::test_data_pair_preserves_records[xml-json] PASSED    [ 37%]
+tests/test_data.py::test_data_pair_preserves_records[xml-yaml] PASSED    [ 37%]
+tests/test_data.py::test_csv_to_json_legacy_quotes_newlines_unicode_leading_zero PASSED [ 38%]
+tests/test_data.py::test_json_to_csv_legacy_flat_records PASSED          [ 38%]
+tests/test_data.py::test_csv_input_validation[a,a\n1,2\n-400-header] PASSED [ 38%]
+tests/test_data.py::test_csv_input_validation[a,b\n1,2\n3\n-400-record 3] PASSED [ 39%]
+tests/test_data.py::test_csv_input_validation[a\n-400-baris data] PASSED [ 39%]
+tests/test_data.py::test_csv_input_validation[a\n\xff\n-400-UTF-8] PASSED [ 40%]
+tests/test_data.py::test_csv_limits PASSED                               [ 40%]
+tests/test_data.py::test_csv_to_yaml_and_xml_keep_text PASSED            [ 40%]
+tests/test_data.py::test_nested_json_flattens_with_documented_paths PASSED [ 41%]
+tests/test_data.py::test_nested_yaml_to_tsv PASSED                       [ 41%]
+tests/test_data.py::test_single_object_becomes_one_row PASSED            [ 41%]
+tests/test_data.py::test_single_key_wrappers_are_unwrapped_and_reported PASSED [ 42%]
+tests/test_data.py::test_flatten_rejects_ambiguous_input_with_specific_message[[{"a.b": 1, "a": {"b": 2}}]-a.b] PASSED [ 42%]
+tests/test_data.py::test_flatten_rejects_ambiguous_input_with_specific_message[[{"t[0]": 1, "t": [2]}]-t[0]] PASSED [ 42%]
+tests/test_data.py::test_flatten_rejects_ambiguous_input_with_specific_message[[1, 2]-objek] PASSED [ 43%]
+tests/test_data.py::test_flatten_rejects_ambiguous_input_with_specific_message["teks"-objek] PASSED [ 43%]
+tests/test_data.py::test_flatten_rejects_ambiguous_input_with_specific_message[[[1, 2]]-objek] PASSED [ 43%]
+tests/test_data.py::test_flatten_column_limit PASSED                     [ 44%]
+tests/test_data.py::test_formula_guard_on_by_default PASSED              [ 44%]
+tests/test_data.py::test_formula_guard_off_keeps_data_and_warns PASSED   [ 44%]
+tests/test_data.py::test_xml_convention_attributes_text_lists PASSED     [ 45%]
+tests/test_data.py::test_json_to_xml_rules PASSED                        [ 45%]
+tests/test_data.py::test_json_list_root_wrapped_in_data PASSED           [ 45%]
+tests/test_data.py::test_json_to_xml_rejects_unrepresentable[[{"nama lengkap": "x"}]-nama lengkap] PASSED [ 46%]
+tests/test_data.py::test_json_to_xml_rejects_unrepresentable[[{"1abc": "x"}]-1abc] PASSED [ 46%]
+tests/test_data.py::test_json_to_xml_rejects_unrepresentable[{"a": {"@attr": {"x": 1}}}-@attr] PASSED [ 46%]
+tests/test_data.py::test_json_to_xml_rejects_unrepresentable[{"a": "kontrol \u0001"}-karakter] PASSED [ 47%]
+tests/test_data.py::test_xml_input_validation[<?xml version="1.0"?><!DOCTYPE a [<!ENTITY e "x">]><a>&e;</a>-DTD] PASSED [ 47%]
+tests/test_data.py::test_xml_input_validation[<!DOCTYPE a [<!ENTITY lol "lol"><!ENTITY lol2 "&lol;&lol;&lol;">]><a>&lol2;</a>-DTD] PASSED [ 47%]
+tests/test_data.py::test_xml_input_validation[<!DOCTYPE a SYSTEM "http://127.0.0.1:9/x.dtd"><a/>-DTD] PASSED [ 48%]
+tests/test_data.py::test_xml_input_validation[<p>a<b>x</b>c</p>-campuran] PASSED [ 48%]
+tests/test_data.py::test_xml_input_validation[<a><b></a>-XML tidak valid] PASSED [ 48%]
+tests/test_data.py::test_xml_input_validation[<a/><b/>-XML tidak valid] PASSED [ 49%]
+tests/test_data.py::test_xml_input_validation[payload6-bersarang] PASSED [ 49%]
+tests/test_data.py::test_json_input_validation[{"a": 1, "a": 2}-duplikat] PASSED [ 49%]
+tests/test_data.py::test_json_input_validation[{"a": NaN}-terbatas] PASSED [ 50%]
+tests/test_data.py::test_json_input_validation[{"a": -Infinity}-terbatas] PASSED [ 50%]
+tests/test_data.py::test_json_input_validation[{"a": 1e400}-terbatas] PASSED [ 50%]
+tests/test_data.py::test_json_input_validation[{"a": -JSON tidak valid] PASSED [ 51%]
+tests/test_data.py::test_json_input_validation[payload5-bersarang] PASSED [ 51%]
+tests/test_data.py::test_json_input_validation[payload6-terlalu panjang] PASSED [ 51%]
+tests/test_data.py::test_yaml_core_schema PASSED                         [ 52%]
+tests/test_data.py::test_yaml_input_validation[a: 1\na: 2\n-duplikat] PASSED [ 52%]
+tests/test_data.py::test_yaml_input_validation[a: !!python/object/apply:os.system ['echo x']\n-tag] PASSED [ 52%]
+tests/test_data.py::test_yaml_input_validation[a: !!binary aGFsbw==\n-JSON] PASSED [ 53%]
+tests/test_data.py::test_yaml_input_validation[a: .nan\n-terbatas] PASSED [ 53%]
+tests/test_data.py::test_yaml_input_validation[1: satu\n-kunci] PASSED   [ 53%]
+tests/test_data.py::test_yaml_input_validation[a: 1\n---\nb: 2\n-satu dokumen] PASSED [ 54%]
+tests/test_data.py::test_yaml_input_validation[a: [\n-YAML tidak valid] PASSED [ 54%]
+tests/test_data.py::test_yaml_input_validation[a: &a [*a]\n-rekursif] PASSED [ 54%]
+tests/test_data.py::test_yaml_input_validation[payload8-bersarang] PASSED [ 55%]
+tests/test_data.py::test_yaml_alias_bomb_rejected PASSED                 [ 55%]
+tests/test_data.py::test_yaml_expansion_limit PASSED                     [ 55%]
+tests/test_data.py::test_yml_alias_and_yaml_output_has_no_aliases PASSED [ 56%]
+tests/test_deploy_config.py::test_production_redis_db_differs_from_dev_and_tests PASSED [ 56%]
+tests/test_deploy_config.py::test_production_worker_name_differs_from_dev PASSED [ 56%]
+tests/test_deploy_config.py::test_production_database_and_data_dir_differ_from_dev PASSED [ 57%]
+tests/test_documents.py::test_document_pair_count PASSED                 [ 57%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-md] PASSED [ 57%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-rtf] PASSED [ 58%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-html] PASSED [ 58%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-rst] PASSED [ 58%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-tex] PASSED [ 59%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-docx] PASSED [ 59%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[txt-pdf] PASSED [ 60%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-txt] PASSED [ 60%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-rtf] PASSED [ 60%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-html] PASSED [ 61%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-rst] PASSED [ 61%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-tex] PASSED [ 61%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-docx] PASSED [ 62%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[md-pdf] PASSED [ 62%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-txt] PASSED [ 62%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-md] PASSED [ 63%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-html] PASSED [ 63%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-rst] PASSED [ 63%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-tex] PASSED [ 64%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-docx] PASSED [ 64%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rtf-pdf] PASSED [ 64%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-txt] PASSED [ 65%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-md] PASSED [ 65%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-rtf] PASSED [ 65%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-rst] PASSED [ 66%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-tex] PASSED [ 66%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-docx] PASSED [ 66%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[html-pdf] PASSED [ 67%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-txt] PASSED [ 67%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-md] PASSED [ 67%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-rtf] PASSED [ 68%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-html] PASSED [ 68%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-tex] PASSED [ 68%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-docx] PASSED [ 69%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[rst-pdf] PASSED [ 69%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-txt] PASSED [ 69%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-md] PASSED [ 70%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-rtf] PASSED [ 70%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-html] PASSED [ 70%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-rst] PASSED [ 71%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-docx] PASSED [ 71%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[tex-pdf] PASSED [ 71%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-txt] PASSED [ 72%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-md] PASSED [ 72%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-rtf] PASSED [ 72%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-html] PASSED [ 73%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-rst] PASSED [ 73%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-tex] PASSED [ 73%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[docx-pdf] PASSED [ 74%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[pdf-txt] PASSED [ 74%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[pdf-md] PASSED [ 74%]
+tests/test_documents.py::test_document_pair_converts_and_output_parses[pdf-docx] PASSED [ 75%]
+tests/test_documents.py::test_md_to_html_keeps_structure PASSED          [ 75%]
+tests/test_documents.py::test_rst_to_md_keeps_heading PASSED             [ 75%]
+tests/test_documents.py::test_tex_to_docx_heading_style PASSED           [ 76%]
+tests/test_documents.py::test_docx_to_rst_parses_with_docutils PASSED    [ 76%]
+tests/test_documents.py::test_txt_to_md_escapes_markdown PASSED          [ 76%]
+tests/test_documents.py::test_txt_to_docx_legacy_one_paragraph_per_line PASSED [ 77%]
+tests/test_documents.py::test_docx_to_txt_legacy_tables_tab_separated PASSED [ 77%]
+tests/test_documents.py::test_pdf_target_notes_explain_pipeline PASSED   [ 77%]
+tests/test_documents.py::test_pdf_without_text_layer_rejected[txt] PASSED [ 78%]
+tests/test_documents.py::test_pdf_without_text_layer_rejected[md] PASSED [ 78%]
+tests/test_documents.py::test_pdf_without_text_layer_rejected[docx] PASSED [ 78%]
+tests/test_documents.py::test_pdf_encrypted_rejected PASSED              [ 79%]
+tests/test_documents.py::test_pdf_corrupt_and_fake_rejected PASSED       [ 79%]
+tests/test_documents.py::test_pdf_page_limit PASSED                      [ 80%]
+tests/test_documents.py::test_pdf_to_docx_paragraphs PASSED              [ 80%]
+tests/test_documents.py::test_content_is_validated[rtf-ini bukan rtf-RTF] PASSED [ 80%]
+tests/test_documents.py::test_content_is_validated[html-hanya teks tanpa tag-HTML] PASSED [ 81%]
+tests/test_documents.py::test_content_is_validated[docx-bukan zip-.docx] PASSED [ 81%]
+tests/test_documents.py::test_content_is_validated[txt-\x00\x01\x02biner-teks] PASSED [ 81%]
+tests/test_documents.py::test_content_is_validated[md-caf\xe9-UTF-8] PASSED [ 82%]
+tests/test_documents.py::test_content_is_validated[tex-PK\x03\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00-teks] PASSED [ 82%]
+tests/test_documents.py::test_docx_without_text_rejected PASSED          [ 82%]
+tests/test_documents.py::test_markdown_and_htm_aliases PASSED            [ 83%]
+tests/test_matrix.py::test_matrix_matches_prd_stage_1 PASSED             [ 83%]
+tests/test_matrix.py::test_out_of_scope_combinations_are_absent PASSED   [ 83%]
+tests/test_matrix.py::test_legacy_pairs_need_no_system_tool[csv-json] PASSED [ 84%]
+tests/test_matrix.py::test_legacy_pairs_need_no_system_tool[json-csv] PASSED [ 84%]
+tests/test_matrix.py::test_legacy_pairs_need_no_system_tool[docx-txt] PASSED [ 84%]
+tests/test_matrix.py::test_legacy_pairs_need_no_system_tool[txt-docx] PASSED [ 85%]
+tests/test_matrix.py::test_aliases PASSED                                [ 85%]
+tests/test_matrix.py::test_formats_not_cached_and_publish_limits PASSED  [ 85%]
+tests/test_matrix.py::test_every_listed_pair_has_notes PASSED            [ 86%]
+tests/test_matrix.py::test_unknown_pair_rejected_with_clear_message PASSED [ 86%]
+tests/test_matrix.py::test_runtime_disables_pairs_with_reason PASSED     [ 86%]
+tests/test_matrix.py::test_disabled_pair_returns_503_with_reason PASSED  [ 87%]
+tests/test_security.py::test_empty_upload_rejected PASSED                [ 87%]
+tests/test_security.py::test_upload_limit_is_still_2_mib PASSED          [ 87%]
+tests/test_security.py::test_download_headers PASSED                     [ 88%]
+tests/test_security.py::test_home_page_headers PASSED                    [ 88%]
+tests/test_security.py::test_server_busy_returns_503 PASSED              [ 88%]
+tests/test_security.py::test_output_limit PASSED                         [ 89%]
+tests/test_security.py::test_docx_zip_bomb_rejected PASSED               [ 89%]
+tests/test_security.py::test_docx_entry_count_rejected PASSED            [ 89%]
+tests/test_security.py::test_docx_path_traversal_entry_rejected PASSED   [ 90%]
+tests/test_security.py::test_docx_external_relationship_rejected PASSED  [ 90%]
+tests/test_security.py::test_docx_external_hyperlink_allowed PASSED      [ 90%]
+tests/test_security.py::test_docx_includetext_field_rejected PASSED      [ 91%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[html-txt] PASSED [ 91%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[html-docx] PASSED [ 91%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[html-pdf] PASSED [ 92%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[md-txt] PASSED [ 92%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[md-docx] PASSED [ 92%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[md-html] PASSED [ 93%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[md-pdf] PASSED [ 93%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[rst-txt] PASSED [ 93%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[rst-docx] PASSED [ 94%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[rst-html] PASSED [ 94%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[rst-pdf] PASSED [ 94%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[tex-txt] PASSED [ 95%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[tex-docx] PASSED [ 95%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[tex-html] PASSED [ 95%]
+tests/test_security.py::test_documents_never_fetch_urls_or_local_files[tex-pdf] PASSED [ 96%]
+tests/test_security.py::test_active_content_removed[md-html-# x\n\n<script>alert(1)</script>\n\n[klik](javascript:alert(1))\n\n<img src=x onerror=alert(1)>\n] PASSED [ 96%]
+tests/test_security.py::test_active_content_removed[html-md-<p onclick='alert(1)'>a</p><script>alert(1)</script><a href='javascript:alert(1)'>k</a>] PASSED [ 96%]
+tests/test_security.py::test_active_content_removed[rst-html-x\n\n.. raw:: html\n\n   <script>alert(1)</script>\n\n`k <javascript:alert(1)>`_\n] PASSED [ 97%]
+tests/test_security.py::test_active_content_removed[tex-html-\documentclass{article}\begin{document}\href{javascript:alert(1)}{k}\end{document}] PASSED [ 97%]
+tests/test_security.py::test_temp_cleanup_after_success PASSED           [ 97%]
+tests/test_security.py::test_temp_cleanup_after_error PASSED             [ 98%]
+tests/test_security.py::test_pandoc_timeout_returns_504_and_cleans_up PASSED [ 98%]
+tests/test_security.py::test_pandoc_heap_exhaustion_gives_clear_message PASSED [ 98%]
+tests/test_security.py::test_libreoffice_timeout_recovers PASSED         [ 99%]
+tests/test_sync_endpoint_gate.py::test_production_app_has_no_sync_endpoint PASSED [ 99%]
+tests/test_sync_endpoint_gate.py::test_sync_endpoint_only_with_flag PASSED [100%]
+
+=========================== short test summary info ===========================
+SKIPPED [1] tests\tahap2\test_cleanup.py:37: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:52: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:63: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:77: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:91: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:105: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_cleanup.py:122: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:64: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:78: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:98: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:104: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:111: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:123: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:133: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:147: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:155: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:165: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:171: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:181: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:207: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:217: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:227: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:241: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:257: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_api.py:273: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:30: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:49: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:62: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:71: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:96: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:106: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:124: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:141: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_jobs_db.py:156: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:49: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:57: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:74: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:94: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:119: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_ops_api.py:142: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_real_processes.py:160: butuh socket UNIX dan grup proses POSIX
+SKIPPED [1] tests\tahap2\test_real_processes.py:176: butuh socket UNIX dan grup proses POSIX
+SKIPPED [1] tests\tahap2\test_real_processes.py:189: butuh socket UNIX dan grup proses POSIX
+SKIPPED [1] tests\tahap2\test_real_processes.py:210: butuh socket UNIX dan grup proses POSIX
+SKIPPED [1] tests\tahap2\test_recovery.py:22: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:35: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:46: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:63: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:77: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:92: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_recovery.py:105: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_storage.py:118: izin POSIX tidak berlaku di Windows
+SKIPPED [1] tests\tahap2\test_worker.py:39: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:57: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:72: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:109: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:121: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:133: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:156: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+SKIPPED [1] tests\tahap2\test_worker.py:179: BELUM DIUJI: PostgreSQL tidak tersedia (ConnectionTimeout)
+========= 235 passed, 60 skipped, 19 deselected in 236.68s (0:03:56) ==========

@@ -1,0 +1,23 @@
+[
+  {
+    "kode": "001",
+    "nama": "Budi",
+    "nilai": {
+      "uts": 80,
+      "uas": 85
+    },
+    "tag": [
+      "a",
+      "b"
+    ]
+  },
+  {
+    "kode": "002",
+    "nama": "Siti",
+    "nilai": {
+      "uts": 90,
+      "uas": 88
+    },
+    "tag": []
+  }
+]

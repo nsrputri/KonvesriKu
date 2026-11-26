@@ -1,0 +1,6 @@
+Sebelum: MemoryCurrent=100335616 MemoryPeak=122335232 
+Server: http://10.33.109.96 | mulai: 2026-11-26 03:05:09 +0700
+rtf->md sebesar batas 4 MiB: 4194303 byte, unggah 2.5 s, status success setelah 32.2 s total, unduh HTTP 200 4027141 byte
+md->txt sebesar batas 4 MiB: 4194304 byte, unggah 3.9 s, status success setelah 38.9 s total, unduh HTTP 200 4187213 byte
+selesai: 2026-11-26 03:05:48 +0700
+Sesudah: MemoryCurrent=217300992 MemoryPeak=2611044352 

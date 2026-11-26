@@ -1,0 +1,2 @@
+# KonversiKu: /etc/default/prometheus-node-exporter. Hanya localhost.
+ARGS="--web.listen-address=127.0.0.1:9100"

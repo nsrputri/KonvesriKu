@@ -1,0 +1,30 @@
+# KonversiKu tahap 2: pekerja Celery (antrean "konversiku", konkurensi 2).
+# %%h menjadi %h untuk Celery (nama host), bukan specifier systemd.
+# TimeoutStopSec lebih panjang dari batas waktu keras tugas (660 detik) agar tugas yang sedang
+# berjalan selesai saat stop; KillMode=mixed mengirim SIGTERM hanya ke proses utama dulu.
+# MemoryMax: dua konversi besar (masing-masing terukur <= 1.500 MiB) tidak boleh menghabiskan RAM
+# VPS yang dipakai bersama PostgreSQL, Redis, dan Grafana; bila lewat, kernel mematikan pekerja
+# di dalam cgroup ini saja dan systemd menyalakannya lagi.
+[Unit]
+Description=KonversiKu pekerja konversi (Celery)
+After=network.target postgresql.service redis-server.service
+Wants=postgresql.service redis-server.service
+
+[Service]
+Type=simple
+User=b2-3
+Group=b2-3
+WorkingDirectory=/home/b2-3/konversiku
+EnvironmentFile=/home/b2-3/konversiku/konversiku.env
+ExecStart=/home/b2-3/konversiku/.venv/bin/celery -A konversiku.celery_app worker -n pekerja1-prod@%%h -Q konversiku --loglevel INFO
+Restart=on-failure
+RestartSec=5
+KillMode=mixed
+TimeoutStopSec=720
+MemoryMax=5G
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

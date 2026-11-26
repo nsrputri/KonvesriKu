@@ -1,0 +1,144 @@
+Python 3.12.3 | Linux-6.8.0-149-generic-x86_64-with-glibc2.39 | CPU 2 inti
+RAM: MemTotal 8132492 kB | MemAvailable 6986544 kB
+pandoc=3.13 libreoffice=24.2.7.2
+Waktu mulai: 2026-11-25 17:32:13 +0000
+Aturan: waktu <= 300 detik dan puncak memori <= 1500 MB, batas limits.py apa adanya
+Batas yang diuji: per sumber {"txt": 5.0, "md": 5.0, "rtf": 5.0, "html": 5.0, "rst": 5.0, "tex": 5.0, "docx": 20.0, "pdf": 20.0, "csv": 25.0, "tsv": 25.0, "json": 25.0, "yaml": 10.0, "xml": 25.0} MiB
+Pendamping: DOCX XML 5 MiB, PDF 1000 halaman, teks 5000000 karakter, baris 500000, sel 2000000, node 2500000, hasil 100 MiB, heap Pandoc 1536M
+
+txt->md [prosa] 5 MiB: file=5242880 byte status=ok waktu=17.8 s puncak=1004 MB hasil=5235170 byte LOLOS
+txt->rtf [prosa] 5 MiB: file=5242880 byte status=ok waktu=15.4 s puncak=736 MB hasil=5790486 byte LOLOS
+txt->html [prosa] 5 MiB: file=5242880 byte status=ok waktu=0.1 s puncak=55 MB hasil=5289622 byte LOLOS
+txt->rst [prosa] 5 MiB: file=5242880 byte status=ok waktu=16.1 s puncak=736 MB hasil=5235170 byte LOLOS
+txt->tex [prosa] 5 MiB: file=5242880 byte status=ok waktu=17.7 s puncak=772 MB hasil=5236912 byte LOLOS
+txt->docx [prosa] 5 MiB: file=5242880 byte status=ok waktu=1.0 s puncak=76 MB hasil=78414 byte LOLOS
+txt->pdf [prosa] 5 MiB: file=5242880 byte status=ok waktu=22.1 s puncak=306 MB hasil=4768534 byte LOLOS
+txt->md [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=24.3 s puncak=1312 MB hasil=5423669 byte LOLOS
+txt->rtf [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=19.7 s puncak=1312 MB hasil=7050962 byte LOLOS
+txt->html [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=0.1 s puncak=65 MB hasil=5966514 byte LOLOS
+txt->rst [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=20.8 s puncak=1312 MB hasil=5604459 byte LOLOS
+txt->tex [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=23.1 s puncak=1314 MB hasil=5606199 byte LOLOS
+txt->docx [baris pendek] 5 MiB: file=5242880 byte status=ok waktu=9.6 s puncak=172 MB hasil=500272 byte LOLOS
+txt->pdf [baris pendek] 5 MiB: file=5242880 byte status=gagal waktu=249.6 s puncak=172 MB hasil=0 byte TIDAK LOLOS ConversionTimeout: Konversi melebihi batas waktu dan dihentikan. Coba file yang lebih kecil.
+txt->pdf [baris pendek] 4 MiB: file=4194304 byte status=gagal waktu=248.1 s puncak=145 MB hasil=0 byte TIDAK LOLOS ConversionTimeout: Konversi melebihi batas waktu dan dihentikan. Coba file yang lebih kecil.
+txt->pdf [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=161.9 s puncak=553 MB hasil=22950017 byte LOLOS
+md->txt [prosa] 5 MiB: file=5242880 byte status=ok waktu=15.9 s puncak=1049 MB hasil=5234017 byte LOLOS
+md->rtf [prosa] 5 MiB: file=5242880 byte status=ok waktu=14.0 s puncak=740 MB hasil=5814459 byte LOLOS
+md->html [prosa] 5 MiB: file=5242880 byte status=ok waktu=13.3 s puncak=754 MB hasil=5288722 byte LOLOS
+md->rst [prosa] 5 MiB: file=5242880 byte status=ok waktu=14.4 s puncak=747 MB hasil=5240843 byte LOLOS
+md->tex [prosa] 5 MiB: file=5242880 byte status=ok waktu=16.3 s puncak=750 MB hasil=5246455 byte LOLOS
+md->docx [prosa] 5 MiB: file=5242880 byte status=ok waktu=11.6 s puncak=726 MB hasil=57424 byte LOLOS
+md->pdf [prosa] 5 MiB: file=5242880 byte status=ok waktu=28.7 s puncak=747 MB hasil=4680849 byte LOLOS
+rtf->txt [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.4 s puncak=1028 MB hasil=5032453 byte LOLOS
+rtf->md [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.8 s puncak=1028 MB hasil=5033937 byte LOLOS
+rtf->html [prosa] 5 MiB: file=5242879 byte status=ok waktu=10.1 s puncak=748 MB hasil=5085915 byte LOLOS
+rtf->rst [prosa] 5 MiB: file=5242879 byte status=ok waktu=11.1 s puncak=725 MB hasil=5033937 byte LOLOS
+rtf->tex [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.4 s puncak=770 MB hasil=5037534 byte LOLOS
+rtf->docx [prosa] 5 MiB: file=5242879 byte status=ok waktu=8.8 s puncak=719 MB hasil=42574 byte LOLOS
+rtf->pdf [prosa] 5 MiB: file=5242879 byte status=ok waktu=22.0 s puncak=719 MB hasil=4418078 byte LOLOS
+html->txt [prosa] 5 MiB: file=5242863 byte status=ok waktu=17.3 s puncak=1045 MB hasil=5186316 byte LOLOS
+html->md [prosa] 5 MiB: file=5242863 byte status=ok waktu=18.9 s puncak=1021 MB hasil=5187462 byte LOLOS
+html->rtf [prosa] 5 MiB: file=5242863 byte status=ok waktu=15.9 s puncak=741 MB hasil=5761454 byte LOLOS
+html->rst [prosa] 5 MiB: file=5242863 byte status=ok waktu=16.0 s puncak=741 MB hasil=5193070 byte LOLOS
+html->tex [prosa] 5 MiB: file=5242863 byte status=ok waktu=17.5 s puncak=751 MB hasil=5198642 byte LOLOS
+html->docx [prosa] 5 MiB: file=5242863 byte status=ok waktu=13.5 s puncak=727 MB hasil=56988 byte LOLOS
+html->pdf [prosa] 5 MiB: file=5242863 byte status=ok waktu=27.8 s puncak=741 MB hasil=4637191 byte LOLOS
+rst->txt [prosa] 5 MiB: file=5242880 byte status=ok waktu=24.8 s puncak=1048 MB hasil=5233632 byte LOLOS
+rst->md [prosa] 5 MiB: file=5242880 byte status=ok waktu=25.9 s puncak=1001 MB hasil=5234404 byte LOLOS
+rst->rtf [prosa] 5 MiB: file=5242880 byte status=ok waktu=23.2 s puncak=740 MB hasil=5814064 byte LOLOS
+rst->html [prosa] 5 MiB: file=5242880 byte status=ok waktu=22.3 s puncak=753 MB hasil=5288337 byte LOLOS
+rst->tex [prosa] 5 MiB: file=5242880 byte status=ok waktu=25.0 s puncak=750 MB hasil=5244912 byte LOLOS
+rst->docx [prosa] 5 MiB: file=5242880 byte status=ok waktu=20.8 s puncak=747 MB hasil=57425 byte LOLOS
+rst->pdf [prosa] 5 MiB: file=5242880 byte status=ok waktu=35.4 s puncak=726 MB hasil=4700452 byte LOLOS
+tex->txt [prosa] 5 MiB: file=5242877 byte status=ok waktu=14.8 s puncak=1048 MB hasil=5231216 byte LOLOS
+tex->md [prosa] 5 MiB: file=5242877 byte status=ok waktu=14.7 s puncak=1001 MB hasil=5231990 byte LOLOS
+tex->rtf [prosa] 5 MiB: file=5242877 byte status=ok waktu=12.7 s puncak=750 MB hasil=5697854 byte LOLOS
+tex->html [prosa] 5 MiB: file=5242877 byte status=ok waktu=12.0 s puncak=753 MB hasil=5286122 byte LOLOS
+tex->rst [prosa] 5 MiB: file=5242877 byte status=ok waktu=13.0 s puncak=750 MB hasil=5238060 byte LOLOS
+tex->docx [prosa] 5 MiB: file=5242877 byte status=ok waktu=10.5 s puncak=750 MB hasil=55474 byte LOLOS
+tex->pdf [prosa] 5 MiB: file=5242877 byte status=ok waktu=24.5 s puncak=750 MB hasil=4718612 byte LOLOS
+docx->txt [teks di batas XML] batas isi: file=74761 byte status=ok waktu=0.5 s puncak=96 MB hasil=4768530 byte LOLOS
+docx->md [teks di batas XML] batas isi: file=74761 byte status=ok waktu=16.3 s puncak=1030 MB hasil=4768534 byte LOLOS
+docx->rtf [teks di batas XML] batas isi: file=74761 byte status=ok waktu=13.9 s puncak=670 MB hasil=5274398 byte LOLOS
+docx->html [teks di batas XML] batas isi: file=74761 byte status=ok waktu=13.4 s puncak=696 MB hasil=4811166 byte LOLOS
+docx->rst [teks di batas XML] batas isi: file=74761 byte status=ok waktu=14.2 s puncak=676 MB hasil=4768540 byte LOLOS
+docx->tex [teks di batas XML] batas isi: file=74761 byte status=ok waktu=15.7 s puncak=700 MB hasil=4770299 byte LOLOS
+docx->pdf [teks di batas XML] batas isi: file=74761 byte status=ok waktu=13.5 s puncak=261 MB hasil=4077803 byte LOLOS
+docx->txt [bergambar] batas isi: file=19491813 byte status=ok waktu=0.1 s puncak=173 MB hasil=713 byte LOLOS
+docx->md [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=173 MB hasil=723 byte LOLOS
+docx->rtf [bergambar] batas isi: file=19491813 byte status=ok waktu=1.0 s puncak=173 MB hasil=1351 byte LOLOS
+docx->html [bergambar] batas isi: file=19491813 byte status=ok waktu=1.0 s puncak=173 MB hasil=1275 byte LOLOS
+docx->rst [bergambar] batas isi: file=19491813 byte status=ok waktu=1.0 s puncak=173 MB hasil=739 byte LOLOS
+docx->tex [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=173 MB hasil=2498 byte LOLOS
+docx->pdf [bergambar] batas isi: file=19491813 byte status=ok waktu=3.6 s puncak=277 MB hasil=2607641 byte LOLOS
+pdf->txt [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=1.9 s puncak=173 MB hasil=4077981 byte LOLOS
+pdf->md [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=15.8 s puncak=876 MB hasil=4076983 byte LOLOS
+pdf->docx [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=4.6 s puncak=173 MB hasil=69709 byte LOLOS
+pdf->txt [bergambar] batas isi: file=19495993 byte status=ok waktu=0.1 s puncak=233 MB hasil=37120 byte LOLOS
+pdf->md [bergambar] batas isi: file=19495993 byte status=ok waktu=0.7 s puncak=233 MB hasil=37901 byte LOLOS
+pdf->docx [bergambar] batas isi: file=19495993 byte status=ok waktu=0.2 s puncak=233 MB hasil=39046 byte LOLOS
+csv->tsv [tabel] 25 MiB: file=26213414 byte status=ok waktu=3.5 s puncak=409 MB hasil=26213414 byte LOLOS
+csv->json [tabel] 25 MiB: file=26213414 byte status=ok waktu=2.7 s puncak=668 MB hasil=57850243 byte LOLOS
+csv->yaml [tabel] 25 MiB: file=26213414 byte status=ok waktu=68.7 s puncak=1279 MB hasil=41885012 byte LOLOS
+csv->xml [tabel] 25 MiB: file=26213414 byte status=ok waktu=16.1 s puncak=938 MB hasil=67793303 byte LOLOS
+tsv->csv [tabel] 25 MiB: file=26213414 byte status=ok waktu=3.3 s puncak=409 MB hasil=26213414 byte LOLOS
+tsv->json [tabel] 25 MiB: file=26213414 byte status=ok waktu=2.4 s puncak=668 MB hasil=57850243 byte LOLOS
+tsv->yaml [tabel] 25 MiB: file=26213414 byte status=ok waktu=69.8 s puncak=1279 MB hasil=41885012 byte LOLOS
+tsv->xml [tabel] 25 MiB: file=26213414 byte status=ok waktu=15.8 s puncak=938 MB hasil=67793303 byte LOLOS
+json->csv [bersarang] 25 MiB: file=26213400 byte status=ok waktu=4.4 s puncak=382 MB hasil=8446598 byte LOLOS
+json->tsv [bersarang] 25 MiB: file=26213400 byte status=ok waktu=4.3 s puncak=382 MB hasil=8446598 byte LOLOS
+json->yaml [bersarang] 25 MiB: file=26213400 byte status=ok waktu=57.7 s puncak=1248 MB hasil=25536228 byte LOLOS
+json->xml [bersarang] 25 MiB: file=26213400 byte status=ok waktu=17.1 s puncak=847 MB hasil=47475433 byte LOLOS
+yaml->csv [bersarang] 10 MiB: file=10484800 byte status=ok waktu=57.1 s puncak=1222 MB hasil=3800798 byte LOLOS
+yaml->tsv [bersarang] 10 MiB: file=10484800 byte status=ok waktu=57.8 s puncak=1222 MB hasil=3800798 byte LOLOS
+yaml->json [bersarang] 10 MiB: file=10484800 byte status=ok waktu=57.3 s puncak=1222 MB hasil=19921123 byte LOLOS
+yaml->xml [bersarang] 10 MiB: file=10484800 byte status=ok waktu=61.7 s puncak=1222 MB hasil=21362833 byte LOLOS
+xml->csv [elemen] 25 MiB: file=26213405 byte status=ok waktu=10.0 s puncak=434 MB hasil=8855891 byte LOLOS
+xml->tsv [elemen] 25 MiB: file=26213405 byte status=ok waktu=9.9 s puncak=434 MB hasil=8855891 byte LOLOS
+xml->json [elemen] 25 MiB: file=26213405 byte status=ok waktu=9.7 s puncak=434 MB hasil=34360834 byte LOLOS
+xml->yaml [elemen] 25 MiB: file=26213405 byte status=ok waktu=45.4 s puncak=778 MB hasil=19370682 byte LOLOS
+
+Waktu selesai: 2026-11-25 18:08:29 +0000
+
+== Ringkasan per format sumber ==
+txt   batas 5 MiB: lolos sampai 3 MiB; waktu terlama 161.9 s, puncak terbesar 1314 MB
+md    batas 5 MiB: lolos sampai 5 MiB; waktu terlama 28.7 s, puncak terbesar 1049 MB
+rtf   batas 5 MiB: lolos sampai 5 MiB; waktu terlama 22.0 s, puncak terbesar 1028 MB
+html  batas 5 MiB: lolos sampai 5 MiB; waktu terlama 27.8 s, puncak terbesar 1045 MB
+rst   batas 5 MiB: lolos sampai 5 MiB; waktu terlama 35.4 s, puncak terbesar 1048 MB
+tex   batas 5 MiB: lolos sampai 5 MiB; waktu terlama 24.5 s, puncak terbesar 1048 MB
+docx  batas 20 MiB: lolos (batas file 20 MiB dan batas isi); waktu terlama 16.3 s, puncak terbesar 1030 MB
+pdf   batas 20 MiB: lolos (batas file 20 MiB dan batas isi); waktu terlama 15.8 s, puncak terbesar 876 MB
+csv   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 68.7 s, puncak terbesar 1279 MB
+tsv   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 69.8 s, puncak terbesar 1279 MB
+json  batas 25 MiB: lolos sampai 25 MiB; waktu terlama 57.7 s, puncak terbesar 1248 MB
+yaml  batas 10 MiB: lolos sampai 10 MiB; waktu terlama 61.7 s, puncak terbesar 1222 MB
+xml   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 45.4 s, puncak terbesar 778 MB
+
+== Keputusan akhir (Task 2) ==
+Semua pasangan lolos pada batas kandidat, kecuali txt->pdf berisi baris pendek (26 byte per baris,
+sekitar 200 ribu paragraf di 5 MiB): 5 MiB dan 4 MiB melewati batas waktu LibreOffice (240 detik),
+3 MiB lolos dalam 161,9 detik (puncak 553 MB, PDF 22,9 MB). Batas TXT diturunkan ke 3 MiB; target
+TXT lain sudah lolos di 5 MiB untuk kedua bentuk isi sehingga juga lolos di 3 MiB.
+
+Sumber  Batas akhir                                   Terlama   Puncak terbesar
+txt     3 MiB                                         161,9 s   1314 MB (txt->md baris pendek 5 MiB)
+md      5 MiB                                          28,7 s   1049 MB
+rtf     5 MiB                                          22,0 s   1028 MB
+html    5 MiB                                          27,8 s   1045 MB
+rst     5 MiB                                          35,4 s   1048 MB
+tex     5 MiB                                          24,5 s   1048 MB
+docx    file 20 MiB, XML teks maks. 5 MiB              16,3 s   1030 MB
+pdf     file 20 MiB, 1.000 halaman, 5 juta karakter    15,8 s    876 MB
+csv     25 MiB                                         68,7 s   1279 MB
+tsv     25 MiB                                         69,8 s   1279 MB
+json    25 MiB                                         57,7 s   1248 MB
+yaml    10 MiB                                         61,7 s   1222 MB
+xml     25 MiB                                         45,4 s    778 MB
+Batas unggah terbesar (Nginx mengikuti): 25 MiB.
+
+== Catatan satuan (ditambahkan 26 November 2026) ==
+Angka memori berlabel "MB" di laporan ini (puncak, pohon, beban, dan aturan 1500) sebenarnya MiB:
+ru_maxrss (KiB) dibagi 1024 dan RSS (byte) dibagi 1.048.576. Jadi aturan "<= 1500 MB" yang dipakai
+adalah <= 1.500 MiB, sekitar 1,57 GB desimal. Ukuran file ("file=... byte") tetap dalam byte, dan
+ukuran batas "MiB" memang biner (1 MiB = 1.048.576 byte = 1,048576 MB).

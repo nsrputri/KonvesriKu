@@ -1,0 +1,14 @@
+# KonversiKu tahap 2: pemulihan tugas (lease habis, pesan antrean hilang). Dipicu timer tiap 1 menit.
+[Unit]
+Description=KonversiKu pemulihan tugas
+After=postgresql.service redis-server.service
+
+[Service]
+Type=oneshot
+User=b2-3
+Group=b2-3
+WorkingDirectory=/home/b2-3/konversiku
+EnvironmentFile=/home/b2-3/konversiku/konversiku.env
+ExecStart=/home/b2-3/konversiku/.venv/bin/python -m konversiku.recovery
+UMask=0077
+NoNewPrivileges=true

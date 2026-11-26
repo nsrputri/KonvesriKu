@@ -1,0 +1,15 @@
+Python 3.11.9 | Windows-10-10.0.26300-SP0
+pandoc=3.13 libreoffice=26.8.3.1
+batas upload=2097152 byte
+
+md->html [markdown_prose]: input=2096128 byte status=200 waktu=10.7 s hasil=2235614 byte 
+md->docx [markdown_prose]: input=2096128 byte status=200 waktu=11.5 s hasil=42194 byte 
+md->pdf [markdown_prose]: input=2096128 byte status=200 waktu=45.2 s hasil=2253862 byte 
+docx->pdf [docx_payload]: input=44582 byte status=200 waktu=10.4 s hasil=1208836 byte 
+md->html [markdown_dense]: input=2096128 byte status=200 waktu=23.8 s hasil=3882171 byte 
+md->docx [markdown_dense]: input=2096128 byte status=413 waktu=32.4 s hasil=151 byte Dokumen terlalu besar atau terlalu kompleks untuk dikonversi dalam batas memori server. Pecah file menjadi beberapa bagian lalu coba lagi.
+csv->json [csv_payload]: input=420024 byte status=200 waktu=0.1 s hasil=1080003 byte 
+json->csv [json_payload]: input=660000 byte status=200 waktu=0.2 s hasil=160046 byte 
+json->xml [json_payload]: input=660000 byte status=200 waktu=1.0 s hasil=1310053 byte 
+
+ukuran profil LibreOffice proses ini: 0.3 MiB

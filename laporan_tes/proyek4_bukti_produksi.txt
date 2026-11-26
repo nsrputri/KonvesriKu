@@ -1,0 +1,11 @@
+Server: http://10.33.109.96 | waktu: 2026-11-26 07:42:39 +0700
+Batas per sumber (MiB): {'txt': 2.0, 'md': 4.0, 'rtf': 4.0, 'html': 4.0, 'rst': 3.0, 'tex': 3.0, 'docx': 20.0, 'pdf': 20.0, 'csv': 25.0, 'tsv': 25.0, 'json': 25.0, 'yaml': 10.0, 'xml': 25.0}
+1. CSV tepat di batas: 26214400 byte, 451956 baris -> HTTP 202 (15.1 s unggah)
+   status akhir: success setelah 3.3 s menunggu
+   unduh: HTTP 200, 57851299 byte JSON, 451956 rekaman, isi benar: True
+2. CSV 1 byte di atas batas -> HTTP 413: File CSV melebihi batas 25 MiB (26,2 MB).
+3. CSV 1 MiB di atas batas -> HTTP 413: File CSV melebihi batas 25 MiB (26,2 MB).
+4. CSV 2 MiB di atas batas (lewat batas Nginx 26 MiB) -> HTTP 413: File melebihi batas 25 MiB (26,2 MB), batas terbesar; tiap format punya batas sendiri, lihat Bantuan.
+5. Alias .yml 1 byte di atas batas YAML -> HTTP 413: File YAML melebihi batas 10 MiB (10,5 MB).
+6. TXT 1 byte di atas batas TXT -> HTTP 413: File TXT melebihi batas 2 MiB (2,1 MB).
+selesai: semua bukti lolos

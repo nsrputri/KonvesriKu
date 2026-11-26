@@ -1,0 +1,14 @@
+# KonversiKu tahap 2: retensi 24 jam dan file yatim. Dipicu timer tiap 10 menit.
+[Unit]
+Description=KonversiKu pembersihan file dan tugas kedaluwarsa
+After=postgresql.service
+
+[Service]
+Type=oneshot
+User=b2-3
+Group=b2-3
+WorkingDirectory=/home/b2-3/konversiku
+EnvironmentFile=/home/b2-3/konversiku/konversiku.env
+ExecStart=/home/b2-3/konversiku/.venv/bin/python -m konversiku.cleanup
+UMask=0077
+NoNewPrivileges=true

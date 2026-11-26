@@ -1,60 +1,63 @@
 # KonversiKu
 
-Prototipe konversi file berbasis server untuk tugas komputasi awan.
+Layanan konversi file berbasis teks di sisi server, untuk proyek gabungan Komputasi Awan
+dan praktikum AMJ. File diunggah, pengguna langsung mendapat **kode tugas**, konversi
+dikerjakan **pekerja terpisah lewat antrean**, dan hasilnya bisa diunduh dari **sesi atau
+perangkat lain** dengan kode itu. File asli dihapus begitu konversi selesai, dan hasil
+dihapus otomatis 24 jam setelah selesai.
 
-## Fitur yang tersedia
+## Format dan batas ukuran
 
-- CSV ke JSON.
-- JSON ke CSV.
-- DOCX ke TXT.
-- TXT ke DOCX.
-- Antarmuka lingkaran untuk unggah dan unduh hasil.
-- `GET /api/formats` untuk daftar pasangan yang didukung.
+72 pasangan konversi. Batas dihitung biner (1 MiB = 1.048.576 byte) dan ditentukan dari
+pengukuran di VPS: file sebesar batas selesai dalam 300 detik dengan memori maksimal
+1.500 MiB per tugas.
 
-File diproses oleh Python/FastAPI di server. Frontend memakai HTML, CSS, dan JavaScript.
+| File asal | Bisa jadi | Maks. file | Dikonversi pakai |
+| --- | --- | --- | --- |
+| TXT | MD, RTF, HTML, RST, TEX, DOCX, PDF | 2 MiB (2,1 MB) | Python, python-docx, Pandoc; PDF lewat LibreOffice |
+| MD, RTF, HTML | 6 format dokumen lain, DOCX, PDF | 4 MiB (4,2 MB) | Pandoc; PDF: Pandoc ke DOCX lalu LibreOffice |
+| RST, TEX | 6 format dokumen lain, DOCX, PDF | 3 MiB (3,1 MB) | Pandoc; PDF: Pandoc ke DOCX lalu LibreOffice |
+| DOCX | TXT, MD, RTF, HTML, RST, TEX, PDF | 20 MiB (21 MB), isi XML maks. 5 MiB | python-docx, Pandoc, LibreOffice |
+| PDF (berteks) | TXT, MD, DOCX | 20 MiB (21 MB), maks. 1.000 halaman | pypdfium2, Pandoc, python-docx |
+| CSV, TSV | 4 format data lain | 25 MiB (26,2 MB) | Python `csv` |
+| JSON | CSV, TSV, YAML, XML | 25 MiB (26,2 MB) | Python `json` (validasi ketat) |
+| YAML | CSV, TSV, JSON, XML | 10 MiB (10,5 MB) | PyYAML |
+| XML | CSV, TSV, JSON, YAML | 25 MiB (26,2 MB) | defusedxml, xmltodict |
 
-## Batasan versi ini
+Rincian per pasangan, aturan perataan data, dan hasil ukur ada di `PETUNJUK.md` bagian 5
+sampai 9.
 
-Maksimal 2 MiB per file. CSV/JSON maksimal 10.000 record, teks UTF-8. JSON harus array objek datar dengan kunci yang sama; data bersarang ditolak. Nilai CSV tetap berupa teks. Nilai null pada JSON menjadi sel CSV kosong. Periksa formula sebelum membuka hasil CSV dalam spreadsheet.
+## Arsitektur
 
-DOCX hanya mengambil paragraf dan tabel utama, tanpa mempertahankan gambar, gaya, header/footer, atau tata letak. Isi DOCX setelah ekstraksi ZIP dibatasi 20 MiB dan 1.000 entri.
+- `app.py` + `konversiku/`: API FastAPI dan UI satu halaman (`index.html`).
+- PostgreSQL menyimpan status tugas (kode tugas hanya disimpan sebagai SHA-256).
+- Redis + Celery mengantre tugas; pekerja Celery menjalankan mesin konversi.
+- Pandoc dan LibreOffice dipanggil sebagai proses terpisah dengan batas waktu dan memori.
+- `deploy/`: unit systemd (API, pekerja, timer pemulihan dan pembersihan), Nginx
+  (batas unggah, rate limit), Prometheus dan dasbor Grafana.
 
-Konversi masih sinkron. Belum ada antrean persisten, kode tugas, penyimpanan hasil lintas sesi, atau penghapusan terjadwal. Versi ini belum memenuhi seluruh PRD dan tidak mendukung file 1 GB. Jangan gunakan untuk dokumen rahasia atau langsung mempublikasikannya sebagai layanan produksi.
+## Menjalankan dan menguji
 
-## Menjalankan di Windows (PowerShell)
-
-Jalankan dari folder repositori:
-
-```powershell
-py -3 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m uvicorn app:app --host 127.0.0.1 --port 8000
-```
-
-Buka http://127.0.0.1:8000 pada perangkat yang menjalankan aplikasi. Alamat ini bukan tautan publik.
-
-## Menjalankan di Linux
-
-Disarankan Python 3.12 dan paket venv yang sesuai.
-
-```bash
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m uvicorn app:app --host 127.0.0.1 --port 8000
-```
-
-## Pemeriksaan konversi
-
-Setelah memasang requirements:
+Laptop Windows (mesin konversi dan tes tanpa layanan):
 
 ```powershell
-.\.venv\Scripts\python.exe selfcheck.py
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-dev.txt
+winget install --id JohnMacFarlane.Pandoc -e
+winget install --id TheDocumentFoundation.LibreOffice -e
+python -m pytest -m "not e2e"
 ```
 
-Linux: `.venv/bin/python selfcheck.py`.
+Sistem tugas penuh butuh Linux dengan PostgreSQL, Redis, dan pekerja Celery. Langkah
+pemasangan, variabel lingkungan, deploy, dan pemantauan ada di `PETUNJUK.md` bagian 3,
+11, 13, 14, dan 15. Peta pemenuhan PRD ada di `STATUS_PRD.md`; output tes dan laporan
+ukur kapasitas ada di `laporan_tes/`.
 
-Pemeriksaan ini menguji handler empat pasangan secara langsung dan validasi dasar, bukan browser, jaringan, maupun deployment publik.
+## Batasan
 
-## Status pengembangan
-
-Kode aplikasi pada baseline ini berasal dari tiga berkas sumber yang sebelumnya telah digunakan. Perluasan format dan sistem tugas cloud adalah pekerjaan berikutnya yang belum termasuk dalam versi ini.
+- Belum mendukung file 1 GB (butuh mesin konversi streaming).
+- Data ke dokumen atau PDF (mis. CSV ke PDF) dan OCR untuk PDF hasil pindai belum ada.
+- Layanan berjalan lewat HTTP di jaringan kampus; HTTPS dan nama domain belum.
+- Hindari mengunggah dokumen rahasia. Siapa pun yang memegang kode tugas bisa mengunduh
+  hasilnya selama 24 jam.

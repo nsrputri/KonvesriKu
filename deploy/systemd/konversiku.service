@@ -1,0 +1,22 @@
+# KonversiKu tahap 2: API (FastAPI/uvicorn) di 127.0.0.1:8000. Menggantikan isi unit konversiku lama.
+# Pasang manual (butuh sudo, lihat PETUNJUK.md bagian deploy). Tidak dipasang otomatis.
+[Unit]
+Description=KonversiKu API (FastAPI/uvicorn, 127.0.0.1:8000)
+After=network.target postgresql.service redis-server.service
+Wants=postgresql.service redis-server.service
+
+[Service]
+Type=simple
+User=b2-3
+Group=b2-3
+WorkingDirectory=/home/b2-3/konversiku
+EnvironmentFile=/home/b2-3/konversiku/konversiku.env
+ExecStart=/home/b2-3/konversiku/.venv/bin/python -m uvicorn app:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

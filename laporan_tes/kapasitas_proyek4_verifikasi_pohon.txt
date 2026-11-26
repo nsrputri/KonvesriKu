@@ -1,0 +1,234 @@
+Python 3.12.3 | Linux-6.8.0-149-generic-x86_64-with-glibc2.39 | CPU 2 inti
+RAM: MemTotal 8132492 kB | MemAvailable 6935896 kB
+pandoc=3.13 libreoffice=24.2.7.2
+Waktu mulai: 2026-11-25 19:12:27 +0000
+Aturan: waktu <= 300 detik dan beban memori <= 1500 MB, batas limits.py apa adanya
+Batas yang diuji: per sumber {"txt": 3.0, "md": 5.0, "rtf": 5.0, "html": 5.0, "rst": 5.0, "tex": 5.0, "docx": 20.0, "pdf": 20.0, "csv": 25.0, "tsv": 25.0, "json": 25.0, "yaml": 10.0, "xml": 25.0} MiB
+Pendamping: DOCX XML 6 MiB, PDF 1000 halaman, teks 5000000 karakter, baris 500000, sel 2000000, node 2500000, node YAML saat dibaca 1750000, hasil 100 MiB, heap Pandoc 1536M, timeout Pandoc 120 s, LibreOffice 360 s
+
+txt->md [prosa] 3 MiB: file=3145728 byte status=ok waktu=10.9 s puncak=721 MB pohon=1167 MB hasil=3141103 byte LOLOS
+txt->rtf [prosa] 3 MiB: file=3145728 byte status=ok waktu=9.4 s puncak=509 MB pohon=943 MB hasil=3474371 byte LOLOS
+txt->html [prosa] 3 MiB: file=3145728 byte status=ok waktu=0.0 s puncak=43 MB pohon=23 MB hasil=3173966 byte LOLOS
+txt->rst [prosa] 3 MiB: file=3145728 byte status=ok waktu=9.7 s puncak=507 MB pohon=941 MB hasil=3141103 byte LOLOS
+txt->tex [prosa] 3 MiB: file=3145728 byte status=ok waktu=10.5 s puncak=551 MB pohon=984 MB hasil=3142845 byte LOLOS
+txt->docx [prosa] 3 MiB: file=3145728 byte status=ok waktu=0.6 s puncak=62 MB pohon=53 MB hasil=61809 byte LOLOS
+txt->pdf [prosa] 3 MiB: file=3145728 byte status=ok waktu=10.4 s puncak=258 MB pohon=312 MB hasil=2838063 byte LOLOS
+txt->md [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=14.0 s puncak=1125 MB pohon=1672 MB hasil=3254202 byte TIDAK LOLOS
+txt->rtf [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=11.6 s puncak=894 MB pohon=1441 MB hasil=4230655 byte LOLOS
+txt->html [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=0.1 s puncak=49 MB pohon=36 MB hasil=3580102 byte LOLOS
+txt->rst [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=12.5 s puncak=919 MB pohon=1465 MB hasil=3362677 byte LOLOS
+txt->tex [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=14.2 s puncak=1059 MB pohon=1606 MB hasil=3364417 byte TIDAK LOLOS
+txt->docx [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=5.5 s puncak=117 MB pohon=112 MB hasil=314942 byte LOLOS
+txt->pdf [baris pendek] 3 MiB: file=3145728 byte status=ok waktu=150.1 s puncak=553 MB pohon=708 MB hasil=22950017 byte LOLOS
+md->txt [prosa] 5 MiB: file=5242880 byte status=ok waktu=15.4 s puncak=1049 MB pohon=1776 MB hasil=5234017 byte TIDAK LOLOS
+md->txt [prosa] 4 MiB: file=4194304 byte status=ok waktu=12.2 s puncak=899 MB pohon=1478 MB hasil=4187213 byte LOLOS
+md->rtf [prosa] 5 MiB: file=5242880 byte status=ok waktu=13.9 s puncak=740 MB pohon=1467 MB hasil=5814459 byte LOLOS
+md->html [prosa] 5 MiB: file=5242880 byte status=ok waktu=13.2 s puncak=754 MB pohon=1481 MB hasil=5288722 byte LOLOS
+md->rst [prosa] 5 MiB: file=5242880 byte status=ok waktu=14.0 s puncak=732 MB pohon=1459 MB hasil=5240843 byte LOLOS
+md->tex [prosa] 5 MiB: file=5242880 byte status=ok waktu=16.3 s puncak=750 MB pohon=1477 MB hasil=5246455 byte LOLOS
+md->docx [prosa] 5 MiB: file=5242880 byte status=ok waktu=12.0 s puncak=726 MB pohon=1451 MB hasil=57424 byte LOLOS
+md->pdf [prosa] 5 MiB: file=5242880 byte status=ok waktu=25.9 s puncak=726 MB pohon=1451 MB hasil=4680849 byte LOLOS
+rtf->txt [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.4 s puncak=1028 MB pohon=1728 MB hasil=5032453 byte TIDAK LOLOS
+rtf->txt [prosa] 4 MiB: file=4194303 byte status=ok waktu=10.0 s puncak=881 MB pohon=1440 MB hasil=4025953 byte LOLOS
+rtf->md [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.7 s puncak=1028 MB pohon=1728 MB hasil=5033937 byte TIDAK LOLOS
+rtf->md [prosa] 4 MiB: file=4194303 byte status=ok waktu=10.1 s puncak=941 MB pohon=1500 MB hasil=4027141 byte LOLOS
+rtf->html [prosa] 5 MiB: file=5242879 byte status=ok waktu=9.8 s puncak=748 MB pohon=1448 MB hasil=5085915 byte LOLOS
+rtf->rst [prosa] 5 MiB: file=5242879 byte status=ok waktu=10.8 s puncak=725 MB pohon=1425 MB hasil=5033937 byte LOLOS
+rtf->tex [prosa] 5 MiB: file=5242879 byte status=ok waktu=12.1 s puncak=770 MB pohon=1470 MB hasil=5037534 byte LOLOS
+rtf->docx [prosa] 5 MiB: file=5242879 byte status=ok waktu=8.6 s puncak=719 MB pohon=1419 MB hasil=42574 byte LOLOS
+rtf->pdf [prosa] 5 MiB: file=5242879 byte status=ok waktu=22.3 s puncak=719 MB pohon=1419 MB hasil=4418078 byte LOLOS
+html->txt [prosa] 5 MiB: file=5242863 byte status=ok waktu=16.6 s puncak=1045 MB pohon=1765 MB hasil=5186316 byte TIDAK LOLOS
+html->txt [prosa] 4 MiB: file=4194287 byte status=ok waktu=13.5 s puncak=897 MB pohon=1471 MB hasil=4149038 byte LOLOS
+html->md [prosa] 5 MiB: file=5242863 byte status=ok waktu=17.5 s puncak=1021 MB pohon=1742 MB hasil=5187462 byte TIDAK LOLOS
+html->md [prosa] 4 MiB: file=4194287 byte status=ok waktu=13.8 s puncak=906 MB pohon=1481 MB hasil=4149956 byte LOLOS
+html->rtf [prosa] 5 MiB: file=5242863 byte status=ok waktu=15.6 s puncak=741 MB pohon=1462 MB hasil=5761454 byte LOLOS
+html->rst [prosa] 5 MiB: file=5242863 byte status=ok waktu=15.3 s puncak=733 MB pohon=1453 MB hasil=5193070 byte LOLOS
+html->tex [prosa] 5 MiB: file=5242863 byte status=ok waktu=17.4 s puncak=752 MB pohon=1473 MB hasil=5198642 byte LOLOS
+html->docx [prosa] 5 MiB: file=5242863 byte status=ok waktu=14.0 s puncak=727 MB pohon=1447 MB hasil=56988 byte LOLOS
+html->pdf [prosa] 5 MiB: file=5242863 byte status=ok waktu=27.4 s puncak=727 MB pohon=1448 MB hasil=4637191 byte LOLOS
+rst->txt [prosa] 5 MiB: file=5242880 byte status=ok waktu=24.0 s puncak=1048 MB pohon=1775 MB hasil=5233632 byte TIDAK LOLOS
+rst->txt [prosa] 4 MiB: file=4194304 byte status=ok waktu=19.2 s puncak=899 MB pohon=1478 MB hasil=4186905 byte LOLOS
+rst->md [prosa] 5 MiB: file=5242880 byte status=ok waktu=24.4 s puncak=1001 MB pohon=1728 MB hasil=5234404 byte TIDAK LOLOS
+rst->md [prosa] 4 MiB: file=4194304 byte status=ok waktu=19.5 s puncak=975 MB pohon=1554 MB hasil=4187523 byte TIDAK LOLOS
+rst->md [prosa] 3 MiB: file=3145728 byte status=ok waktu=15.5 s puncak=729 MB pohon=1171 MB hasil=3140640 byte LOLOS
+rst->rtf [prosa] 5 MiB: file=5242880 byte status=ok waktu=22.6 s puncak=740 MB pohon=1467 MB hasil=5814064 byte LOLOS
+rst->html [prosa] 5 MiB: file=5242880 byte status=ok waktu=21.3 s puncak=754 MB pohon=1481 MB hasil=5288337 byte LOLOS
+rst->tex [prosa] 5 MiB: file=5242880 byte status=ok waktu=24.5 s puncak=749 MB pohon=1476 MB hasil=5244912 byte LOLOS
+rst->docx [prosa] 5 MiB: file=5242880 byte status=ok waktu=20.1 s puncak=726 MB pohon=1451 MB hasil=57425 byte LOLOS
+rst->pdf [prosa] 5 MiB: file=5242880 byte status=ok waktu=34.5 s puncak=726 MB pohon=1451 MB hasil=4700452 byte LOLOS
+tex->txt [prosa] 5 MiB: file=5242877 byte status=ok waktu=14.0 s puncak=1048 MB pohon=1777 MB hasil=5231216 byte TIDAK LOLOS
+tex->txt [prosa] 4 MiB: file=4194301 byte status=ok waktu=11.2 s puncak=891 MB pohon=1472 MB hasil=4184957 byte LOLOS
+tex->md [prosa] 5 MiB: file=5242877 byte status=ok waktu=14.7 s puncak=1001 MB pohon=1730 MB hasil=5231990 byte TIDAK LOLOS
+tex->md [prosa] 4 MiB: file=4194301 byte status=ok waktu=11.7 s puncak=977 MB pohon=1558 MB hasil=4185577 byte TIDAK LOLOS
+tex->md [prosa] 3 MiB: file=3145725 byte status=ok waktu=8.9 s puncak=740 MB pohon=1178 MB hasil=3139164 byte LOLOS
+tex->rtf [prosa] 5 MiB: file=5242877 byte status=ok waktu=12.5 s puncak=738 MB pohon=1467 MB hasil=5697854 byte LOLOS
+tex->html [prosa] 5 MiB: file=5242877 byte status=ok waktu=11.8 s puncak=753 MB pohon=1482 MB hasil=5286122 byte LOLOS
+tex->rst [prosa] 5 MiB: file=5242877 byte status=ok waktu=12.5 s puncak=732 MB pohon=1461 MB hasil=5238060 byte LOLOS
+tex->docx [prosa] 5 MiB: file=5242877 byte status=ok waktu=10.4 s puncak=729 MB pohon=1451 MB hasil=55474 byte LOLOS
+tex->pdf [prosa] 5 MiB: file=5242877 byte status=ok waktu=25.2 s puncak=729 MB pohon=1451 MB hasil=4718612 byte LOLOS
+docx->txt [teks di batas XML] batas isi: file=76153 byte status=ok waktu=0.6 s puncak=104 MB pohon=60 MB hasil=4944502 byte LOLOS
+docx->md [teks di batas XML] batas isi: file=76153 byte status=ok waktu=16.3 s puncak=1020 MB pohon=1703 MB hasil=4944506 byte TIDAK LOLOS
+docx->rtf [teks di batas XML] batas isi: file=76153 byte status=ok waktu=14.3 s puncak=692 MB pohon=1375 MB hasil=5469070 byte LOLOS
+docx->html [teks di batas XML] batas isi: file=76153 byte status=ok waktu=13.7 s puncak=718 MB pohon=1401 MB hasil=4988698 byte LOLOS
+docx->rst [teks di batas XML] batas isi: file=76153 byte status=ok waktu=14.5 s puncak=697 MB pohon=1380 MB hasil=4944512 byte LOLOS
+docx->tex [teks di batas XML] batas isi: file=76153 byte status=ok waktu=16.0 s puncak=719 MB pohon=1403 MB hasil=4946271 byte LOLOS
+docx->pdf [teks di batas XML] batas isi: file=76153 byte status=ok waktu=13.5 s puncak=262 MB pohon=295 MB hasil=4231428 byte LOLOS
+docx->txt [bergambar] batas isi: file=19491813 byte status=ok waktu=0.2 s puncak=161 MB pohon=60 MB hasil=713 byte LOLOS
+docx->md [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=161 MB pohon=138 MB hasil=723 byte LOLOS
+docx->rtf [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=161 MB pohon=121 MB hasil=1351 byte LOLOS
+docx->html [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=161 MB pohon=113 MB hasil=1275 byte LOLOS
+docx->rst [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=161 MB pohon=220 MB hasil=739 byte LOLOS
+docx->tex [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=161 MB pohon=141 MB hasil=2498 byte LOLOS
+docx->pdf [bergambar] batas isi: file=19491813 byte status=ok waktu=3.4 s puncak=277 MB pohon=366 MB hasil=2607179 byte LOLOS
+pdf->txt [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=1.9 s puncak=168 MB pohon=60 MB hasil=4077981 byte LOLOS
+pdf->md [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=15.8 s puncak=873 MB pohon=1450 MB hasil=4076983 byte LOLOS
+pdf->docx [teks 1000 halaman] batas isi: file=4705119 byte status=ok waktu=4.8 s puncak=168 MB pohon=94 MB hasil=69709 byte LOLOS
+pdf->txt [bergambar] batas isi: file=19495993 byte status=ok waktu=0.1 s puncak=199 MB pohon=55 MB hasil=37120 byte LOLOS
+pdf->md [bergambar] batas isi: file=19495993 byte status=ok waktu=0.7 s puncak=199 MB pohon=171 MB hasil=37901 byte LOLOS
+pdf->docx [bergambar] batas isi: file=19495993 byte status=ok waktu=0.3 s puncak=199 MB pohon=57 MB hasil=39046 byte LOLOS
+csv->tsv [tabel] 25 MiB: file=26213414 byte status=ok waktu=3.3 s puncak=409 MB pohon=384 MB hasil=26213414 byte LOLOS
+csv->json [tabel] 25 MiB: file=26213414 byte status=ok waktu=2.4 s puncak=668 MB pohon=619 MB hasil=57850243 byte LOLOS
+csv->yaml [tabel] 25 MiB: file=26213414 byte status=ok waktu=68.7 s puncak=1279 MB pohon=1239 MB hasil=41885012 byte LOLOS
+csv->xml [tabel] 25 MiB: file=26213414 byte status=ok waktu=15.9 s puncak=938 MB pohon=937 MB hasil=67793303 byte LOLOS
+csv->tsv [padat: satu kolom] 25.00 MiB: file=26214399 byte status=gagal waktu=0.5 s puncak=271 MB pohon=246 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Batas 500.000 baris data.
+csv->json [padat: satu kolom] 25.00 MiB: file=26214399 byte status=gagal waktu=0.5 s puncak=271 MB pohon=246 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Batas 500.000 baris data.
+csv->yaml [padat: satu kolom] 25.00 MiB: file=26214399 byte status=gagal waktu=0.5 s puncak=271 MB pohon=250 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Batas 500.000 baris data.
+csv->xml [padat: satu kolom] 25.00 MiB: file=26214399 byte status=gagal waktu=0.5 s puncak=271 MB pohon=247 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Batas 500.000 baris data.
+csv->tsv [padat: 200 kolom nama panjang] 3.83 MiB: file=4018201 byte status=ok waktu=1.9 s puncak=205 MB pohon=158 MB hasil=4018201 byte LOLOS
+csv->json [padat: 200 kolom nama panjang] 3.83 MiB: file=4018201 byte status=gagal waktu=1.6 s puncak=552 MB pohon=496 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Hasil konversi terlalu besar (maksimal 100 MiB).
+csv->yaml [padat: 200 kolom nama panjang] 3.83 MiB: file=4018201 byte status=ok waktu=88.4 s puncak=1124 MB pohon=1124 MB hasil=96000000 byte LOLOS
+csv->xml [padat: 200 kolom nama panjang] 3.83 MiB: file=4018201 byte status=gagal waktu=18.0 s puncak=767 MB pohon=760 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Hasil konversi terlalu besar (maksimal 100 MiB).
+tsv->csv [tabel] 25 MiB: file=26213414 byte status=ok waktu=3.4 s puncak=409 MB pohon=395 MB hasil=26213414 byte LOLOS
+tsv->json [tabel] 25 MiB: file=26213414 byte status=ok waktu=2.5 s puncak=668 MB pohon=629 MB hasil=57850243 byte LOLOS
+tsv->yaml [tabel] 25 MiB: file=26213414 byte status=ok waktu=68.5 s puncak=1279 MB pohon=1279 MB hasil=41885012 byte LOLOS
+tsv->xml [tabel] 25 MiB: file=26213414 byte status=ok waktu=15.8 s puncak=938 MB pohon=927 MB hasil=67793303 byte LOLOS
+json->csv [bersarang] 25 MiB: file=26213400 byte status=ok waktu=4.3 s puncak=382 MB pohon=382 MB hasil=8446598 byte LOLOS
+json->tsv [bersarang] 25 MiB: file=26213400 byte status=ok waktu=4.3 s puncak=383 MB pohon=383 MB hasil=8446598 byte LOLOS
+json->yaml [bersarang] 25 MiB: file=26213400 byte status=ok waktu=57.6 s puncak=1248 MB pohon=1248 MB hasil=25536228 byte LOLOS
+json->xml [bersarang] 25 MiB: file=26213400 byte status=ok waktu=17.1 s puncak=841 MB pohon=841 MB hasil=47475433 byte LOLOS
+json->csv [padat: objek kecil] 25.00 MiB: file=26214393 byte status=gagal waktu=3.4 s puncak=704 MB pohon=704 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->tsv [padat: objek kecil] 25.00 MiB: file=26214393 byte status=gagal waktu=3.4 s puncak=704 MB pohon=704 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->yaml [padat: objek kecil] 25.00 MiB: file=26214393 byte status=gagal waktu=3.4 s puncak=704 MB pohon=704 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->xml [padat: objek kecil] 25.00 MiB: file=26214393 byte status=gagal waktu=3.5 s puncak=704 MB pohon=704 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->csv [padat: angka] 25.00 MiB: file=26214399 byte status=gagal waktu=3.6 s puncak=205 MB pohon=175 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->tsv [padat: angka] 25.00 MiB: file=26214399 byte status=gagal waktu=3.5 s puncak=205 MB pohon=175 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->yaml [padat: angka] 25.00 MiB: file=26214399 byte status=gagal waktu=3.6 s puncak=205 MB pohon=175 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+json->xml [padat: angka] 25.00 MiB: file=26214399 byte status=gagal waktu=3.6 s puncak=205 MB pohon=175 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Struktur data terlalu besar setelah alias diperluas (maksimal 2.500.000 node).
+yaml->csv [bersarang] 10 MiB: file=10484800 byte status=ok waktu=58.2 s puncak=1221 MB pohon=1188 MB hasil=3800798 byte LOLOS
+yaml->tsv [bersarang] 10 MiB: file=10484800 byte status=ok waktu=57.5 s puncak=1221 MB pohon=1184 MB hasil=3800798 byte LOLOS
+yaml->json [bersarang] 10 MiB: file=10484800 byte status=ok waktu=57.2 s puncak=1221 MB pohon=1184 MB hasil=19921123 byte LOLOS
+yaml->xml [bersarang] 10 MiB: file=10484800 byte status=ok waktu=62.6 s puncak=1221 MB pohon=1184 MB hasil=21362833 byte LOLOS
+yaml->csv [padat: aliran [1, 1, ...]] 10.00 MiB: file=10485760 byte status=gagal waktu=44.2 s puncak=1007 MB pohon=1007 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->tsv [padat: aliran [1, 1, ...]] 10.00 MiB: file=10485760 byte status=gagal waktu=43.9 s puncak=1007 MB pohon=1006 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->json [padat: aliran [1, 1, ...]] 10.00 MiB: file=10485760 byte status=gagal waktu=43.6 s puncak=1007 MB pohon=1006 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->xml [padat: aliran [1, 1, ...]] 10.00 MiB: file=10485760 byte status=gagal waktu=44.4 s puncak=1007 MB pohon=1005 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->csv [padat: blok - 1] 10.00 MiB: file=10485760 byte status=gagal waktu=46.2 s puncak=953 MB pohon=952 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->tsv [padat: blok - 1] 10.00 MiB: file=10485760 byte status=gagal waktu=46.7 s puncak=953 MB pohon=952 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->json [padat: blok - 1] 10.00 MiB: file=10485760 byte status=gagal waktu=46.5 s puncak=953 MB pohon=951 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->xml [padat: blok - 1] 10.00 MiB: file=10485760 byte status=gagal waktu=46.7 s puncak=953 MB pohon=953 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: YAML terlalu besar (maksimal 1.750.000 node).
+yaml->csv [padat: tepat 1749999 node] 5.01 MiB: file=5249998 byte status=gagal waktu=47.5 s puncak=1122 MB pohon=1109 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Elemen ke-1 bukan objek; CSV/TSV butuh array objek (satu objek per baris).
+yaml->tsv [padat: tepat 1749999 node] 5.01 MiB: file=5249998 byte status=gagal waktu=47.0 s puncak=1122 MB pohon=1122 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: Elemen ke-1 bukan objek; CSV/TSV butuh array objek (satu objek per baris).
+yaml->json [padat: tepat 1749999 node] 5.01 MiB: file=5249998 byte status=ok waktu=48.0 s puncak=1122 MB pohon=1098 MB hasil=8749998 byte LOLOS
+yaml->xml [padat: tepat 1749999 node] 5.01 MiB: file=5249998 byte status=ok waktu=54.7 s puncak=1122 MB pohon=1122 MB hasil=29750036 byte LOLOS
+xml->csv [elemen] 25 MiB: file=26213405 byte status=ok waktu=9.9 s puncak=434 MB pohon=432 MB hasil=8855891 byte LOLOS
+xml->tsv [elemen] 25 MiB: file=26213405 byte status=ok waktu=9.9 s puncak=434 MB pohon=425 MB hasil=8855891 byte LOLOS
+xml->json [elemen] 25 MiB: file=26213405 byte status=ok waktu=9.6 s puncak=434 MB pohon=434 MB hasil=34360834 byte LOLOS
+xml->yaml [elemen] 25 MiB: file=26213405 byte status=ok waktu=45.4 s puncak=778 MB pohon=738 MB hasil=19370682 byte LOLOS
+xml->csv [padat: elemen kosong] 25.00 MiB: file=26214399 byte status=gagal waktu=14.8 s puncak=1107 MB pohon=1107 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: XML terlalu besar (maksimal 2.500.000 elemen).
+xml->tsv [padat: elemen kosong] 25.00 MiB: file=26214399 byte status=gagal waktu=14.5 s puncak=1107 MB pohon=1107 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: XML terlalu besar (maksimal 2.500.000 elemen).
+xml->json [padat: elemen kosong] 25.00 MiB: file=26214399 byte status=gagal waktu=14.6 s puncak=1107 MB pohon=1091 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: XML terlalu besar (maksimal 2.500.000 elemen).
+xml->yaml [padat: elemen kosong] 25.00 MiB: file=26214399 byte status=gagal waktu=14.3 s puncak=1107 MB pohon=1107 MB hasil=0 byte DITOLAK DENGAN PESAN (LOLOS) ConversionError: XML terlalu besar (maksimal 2.500.000 elemen).
+
+Waktu selesai: 2026-11-25 19:53:53 +0000
+
+== Ringkasan per format sumber ==
+txt   batas 3 MiB: TIDAK LOLOS: md [baris pendek], tex [baris pendek]; waktu terlama 150.1 s, beban memori terbesar 1465 MB
+md    batas 5 MiB: lolos sampai 4 MiB; waktu terlama 25.9 s, beban memori terbesar 1481 MB
+rtf   batas 5 MiB: lolos sampai 4 MiB; waktu terlama 22.3 s, beban memori terbesar 1500 MB
+html  batas 5 MiB: lolos sampai 4 MiB; waktu terlama 27.4 s, beban memori terbesar 1481 MB
+rst   batas 5 MiB: lolos sampai 3 MiB; waktu terlama 34.5 s, beban memori terbesar 1481 MB
+tex   batas 5 MiB: lolos sampai 3 MiB; waktu terlama 25.2 s, beban memori terbesar 1482 MB
+docx  batas 20 MiB: TIDAK LOLOS: md [teks di batas XML]; waktu terlama 16.0 s, beban memori terbesar 1403 MB
+pdf   batas 20 MiB: lolos (batas file 20 MiB dan batas isi); waktu terlama 15.8 s, beban memori terbesar 1450 MB
+csv   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 88.4 s, beban memori terbesar 1279 MB
+tsv   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 68.5 s, beban memori terbesar 1279 MB
+json  batas 25 MiB: lolos sampai 25 MiB; waktu terlama 57.6 s, beban memori terbesar 1248 MB
+yaml  batas 10 MiB: lolos sampai 10 MiB; waktu terlama 62.6 s, beban memori terbesar 1221 MB
+xml   batas 25 MiB: lolos sampai 25 MiB; waktu terlama 45.4 s, beban memori terbesar 1107 MB
+
+== Ukur tambahan (batas kandidat dari ringkasan di atas: TXT 2 MiB, batas XML DOCX 5 MiB) ==
+Python 3.12.3 | Linux-6.8.0-149-generic-x86_64-with-glibc2.39 | CPU 2 inti
+RAM: MemTotal 8132492 kB | MemAvailable 6930796 kB
+pandoc=3.13 libreoffice=24.2.7.2
+Waktu mulai: 2026-11-25 19:54:55 +0000
+Aturan: waktu <= 300 detik dan beban memori <= 1500 MB, batas limits.py apa adanya
+Batas yang diuji: per sumber {"txt": 2.0, "md": 4.0, "rtf": 4.0, "html": 4.0, "rst": 3.0, "tex": 3.0, "docx": 20.0, "pdf": 20.0, "csv": 25.0, "tsv": 25.0, "json": 25.0, "yaml": 10.0, "xml": 25.0} MiB
+Pendamping: DOCX XML 5 MiB, PDF 1000 halaman, teks 5000000 karakter, baris 500000, sel 2000000, node 2500000, node YAML saat dibaca 1750000, hasil 100 MiB, heap Pandoc 1536M, timeout Pandoc 120 s, LibreOffice 360 s
+
+txt->md [prosa] 2 MiB: file=2097152 byte status=ok waktu=7.8 s puncak=457 MB pohon=767 MB hasil=2094069 byte LOLOS
+txt->rtf [prosa] 2 MiB: file=2097152 byte status=ok waktu=6.8 s puncak=402 MB pohon=712 MB hasil=2316313 byte LOLOS
+txt->html [prosa] 2 MiB: file=2097152 byte status=ok waktu=0.0 s puncak=37 MB pohon=23 MB hasil=2116138 byte LOLOS
+txt->rst [prosa] 2 MiB: file=2097152 byte status=ok waktu=6.7 s puncak=400 MB pohon=710 MB hasil=2094069 byte LOLOS
+txt->tex [prosa] 2 MiB: file=2097152 byte status=ok waktu=7.2 s puncak=445 MB pohon=755 MB hasil=2095811 byte LOLOS
+txt->docx [prosa] 2 MiB: file=2097152 byte status=ok waktu=0.5 s puncak=53 MB pohon=51 MB hasil=53521 byte LOLOS
+txt->pdf [prosa] 2 MiB: file=2097152 byte status=ok waktu=6.6 s puncak=234 MB pohon=289 MB hasil=1893188 byte LOLOS
+txt->md [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=9.5 s puncak=712 MB pohon=1085 MB hasil=2169468 byte LOLOS
+txt->rtf [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=8.0 s puncak=463 MB pohon=836 MB hasil=2820499 byte LOLOS
+txt->html [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=0.0 s puncak=41 MB pohon=23 MB hasil=2386894 byte LOLOS
+txt->rst [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=8.6 s puncak=455 MB pohon=827 MB hasil=2241785 byte LOLOS
+txt->tex [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=9.5 s puncak=557 MB pohon=930 MB hasil=2243525 byte LOLOS
+txt->docx [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=3.7 s puncak=92 MB pohon=86 MB hasil=222258 byte LOLOS
+txt->pdf [baris pendek] 2 MiB: file=2097152 byte status=ok waktu=73.0 s puncak=477 MB pohon=571 MB hasil=15137492 byte LOLOS
+docx->txt [teks di batas XML] batas isi: file=68972 byte status=ok waktu=0.5 s puncak=104 MB pohon=52 MB hasil=4038011 byte LOLOS
+docx->md [teks di batas XML] batas isi: file=68972 byte status=ok waktu=13.5 s puncak=939 MB pohon=1495 MB hasil=4038014 byte LOLOS
+docx->rtf [teks di batas XML] batas isi: file=68972 byte status=ok waktu=12.1 s puncak=608 MB pohon=1164 MB hasil=4466406 byte LOLOS
+docx->html [teks di batas XML] batas isi: file=68972 byte status=ok waktu=11.8 s puncak=629 MB pohon=1185 MB hasil=4074190 byte LOLOS
+docx->rst [teks di batas XML] batas isi: file=68972 byte status=ok waktu=12.1 s puncak=603 MB pohon=1159 MB hasil=4038020 byte LOLOS
+docx->tex [teks di batas XML] batas isi: file=68972 byte status=ok waktu=13.3 s puncak=620 MB pohon=1176 MB hasil=4039779 byte LOLOS
+docx->pdf [teks di batas XML] batas isi: file=68972 byte status=ok waktu=11.4 s puncak=256 MB pohon=285 MB hasil=3441378 byte LOLOS
+docx->txt [bergambar] batas isi: file=19491813 byte status=ok waktu=0.2 s puncak=167 MB pohon=57 MB hasil=713 byte LOLOS
+docx->md [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=167 MB pohon=133 MB hasil=723 byte LOLOS
+docx->rtf [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=167 MB pohon=218 MB hasil=1351 byte LOLOS
+docx->html [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=167 MB pohon=129 MB hasil=1275 byte LOLOS
+docx->rst [bergambar] batas isi: file=19491813 byte status=ok waktu=1.1 s puncak=167 MB pohon=102 MB hasil=739 byte LOLOS
+docx->tex [bergambar] batas isi: file=19491813 byte status=ok waktu=1.2 s puncak=167 MB pohon=221 MB hasil=2498 byte LOLOS
+docx->pdf [bergambar] batas isi: file=19491813 byte status=ok waktu=3.4 s puncak=277 MB pohon=366 MB hasil=2607550 byte LOLOS
+
+Waktu selesai: 2026-11-25 19:58:58 +0000
+
+== Ringkasan per format sumber ==
+txt   batas 2 MiB: lolos sampai 2 MiB; waktu terlama 73.0 s, beban memori terbesar 1085 MB
+docx  batas 20 MiB: lolos (batas file 20 MiB dan batas isi); waktu terlama 13.5 s, beban memori terbesar 1495 MB
+
+== Keputusan akhir (perbaikan review akhir) ==
+Beban memori = max(RSS proses terbesar, puncak jumlah RSS pohon proses, sampel 0,1 detik). Pada
+pasangan lewat Pandoc, proses Python memegang AST selama Pandoc menulis, sehingga beban pohon
+sekitar 0,4 sampai 0,7 GB di atas RSS proses terbesar (metrik verifikasi pertama). Batas diturunkan
+ke ukuran terbesar yang lolos untuk target terberat:
+
+Sumber  Batas akhir                                    Penentu (beban pohon)
+txt     2 MiB                                          txt->md baris pendek 3 MiB 1672 MB; 2 MiB 1085 MB
+md      4 MiB                                          md->txt 5 MiB 1776 MB; 4 MiB 1478 MB
+rtf     4 MiB                                          rtf->md 5 MiB 1728 MB; 4 MiB 1500 MB
+html    4 MiB                                          html->txt 5 MiB 1765 MB; 4 MiB 1471 MB
+rst     3 MiB                                          rst->md 4 MiB 1554 MB; 3 MiB 1171 MB
+tex     3 MiB                                          tex->md 4 MiB 1558 MB; 3 MiB 1178 MB
+docx    file 20 MiB, semua XML maks. 5 MiB             docx->md XML 6 MiB 1703 MB; 5 MiB 1495 MB
+pdf     file 20 MiB, 1.000 halaman, 5 juta karakter    pdf->md 1450 MB
+csv     25 MiB                                         csv->yaml 1279 MB
+tsv     25 MiB                                         tsv->yaml 1279 MB
+json    25 MiB                                         json->yaml 1248 MB
+yaml    10 MiB, maks. 1.750.000 node saat dibaca       yaml->xml 1221 MB; padat ditolak <= 47 s, <= 1007 MB
+xml     25 MiB                                         xml->yaml 778 MB; padat ditolak 15 s, 1107 MB
+Batas unggah terbesar (Nginx mengikuti): 25 MiB. Terlama: 150,1 s (txt->pdf baris pendek 3 MiB, sebelum
+TXT turun ke 2 MiB; di 2 MiB 73,0 s).
+Bentuk padat yang ditolak dengan pesan: CSV satu kolom (batas 500.000 baris, 0,5 s), JSON objek kecil
+dan angka (batas 2.500.000 node, 3,6 s), XML elemen kosong (2.500.000 elemen, 15 s), YAML aliran dan
+blok (1.750.000 node, 44 s sampai 47 s). CSV 200 kolom bernama panjang 3,8 MiB ke JSON/XML melewati
+batas hasil 100 MiB (ditolak dengan pesan); ke TSV/YAML lolos.
+
+== Catatan satuan (ditambahkan 26 November 2026) ==
+Angka memori berlabel "MB" di laporan ini (puncak, pohon, beban, dan aturan 1500) sebenarnya MiB:
+ru_maxrss (KiB) dibagi 1024 dan RSS (byte) dibagi 1.048.576. Jadi aturan "<= 1500 MB" yang dipakai
+adalah <= 1.500 MiB, sekitar 1,57 GB desimal. Ukuran file ("file=... byte") tetap dalam byte, dan
+ukuran batas "MiB" memang biner (1 MiB = 1.048.576 byte = 1,048576 MB).
